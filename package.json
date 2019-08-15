@@ -1,0 +1,23 @@
+{
+  "name": "lvshi",
+  "version": "1.0.0",
+  "description": "律师小程序\r 开发文档",
+  "main": "app.js",
+  "dependencies": {
+    "vant-weapp": "^0.5.19"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WeTis/lvshi.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WeTis/lvshi/issues"
+  },
+  "homepage": "https://github.com/WeTis/lvshi#readme"
+}

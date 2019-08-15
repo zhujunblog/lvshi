@@ -1,0 +1,12 @@
+<view class='login'>
+  <image src=''></image>
+   <view class='h3'>
+    欢迎来到XXX
+   </view>
+   <view class='h3'>XXX需要获取你的授权</view>
+   <view class='dist'>XXX不会将你的信息提供给第三方
+   <view></view>
+   仅用于XXX展示个人信息</view>
+
+   <van-button custom-class="button" size="large" type="primary">授权</van-button>
+</view>

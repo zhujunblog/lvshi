@@ -1,0 +1,35 @@
+/* pages/login/login.wxss */
+.login{
+
+}
+.login image{
+  display: block;
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+  border: 1px solid #000;
+  margin: 0 auto;
+  margin-top: 150rpx;
+  margin-bottom: 60rpx;
+}
+.h3{
+  font-size: 20px;
+  text-align: center;
+  padding-bottom: 20rpx;
+  
+}
+.dist{
+  text-align: center;
+  font-size: 14px;
+  line-height: 30rpx;
+  margin-top: 50rpx;
+  color: #666;
+}
+.dist view{
+  height: 20rpx;
+}
+.button{
+  width: 650rpx !important;
+  margin-top: 80rpx;
+  margin-left: 50rpx; 
+}
