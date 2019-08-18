@@ -8,5 +8,7 @@
    <view></view>
    仅用于XXX展示个人信息</view>
 
-   <van-button custom-class="button" size="large" type="primary">授权</van-button>
+  
+   
+    <button class='button' open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权     </button>
 </view>

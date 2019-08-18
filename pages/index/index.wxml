@@ -1,4 +1,28 @@
 <!--pages/index/index.wxml-->
 <view>
-  <van-button>按钮</van-button>
+  <view class='imgsTop'>
+    <image src='../../image/top.jpg'></image>
+  </view>
+  <view class='content'>
+     <view class='title'>我的律师</view>
+     <view class='banner'>
+       <image class='icon' src='../../image/1.png'></image>
+       <view class='texyContent'>
+        <view class='h3'>
+         找律师
+         <image class='iconL' src='../../image/2.png'></image>
+        </view>
+        <view class='dist'>
+          按分类找律师 >
+        </view>
+       </view>
+     </view>
+  </view>
+  <view class='nav-list'>
+    <navigator hover-class='none' url="/pages/component/{{item.name}}/{{item.name}}" class="nav-li bg-{{item.color}}" wx:for="{{elements}}" wx:key>
+      <view class="nav-title">{{item.title}}</view>
+      <view class="nav-name">{{item.name}}</view>
+      <!-- <image class='cuIcon'></image> -->
+    </navigator>
+  </view>
 </view>

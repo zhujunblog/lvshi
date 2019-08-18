@@ -1,0 +1,8 @@
+<!--pages/start/start.wxml  启动页面-->
+<view class='startBox'>
+   <view class='h3'>永不打烊的律所</view>
+   <view class='btns' wx:if="{{isShowBtn}}">
+      <van-button type="primary" bind:click="jumpToUser">用户端</van-button>
+      <van-button type="primary" bind:click="jumpToLawyer">律师端</van-button>
+   </view>
+</view>

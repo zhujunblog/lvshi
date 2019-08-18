@@ -20,6 +20,8 @@
 		"hidedInDevtools": []
 	},
 	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
@@ -38,12 +40,26 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 2,
 			"list": [
 				{
 					"id": -1,
 					"name": "login",
 					"pathName": "pages/login/login",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "index",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "list",
+					"pathName": "pages/list/list",
 					"scene": null
 				}
 			]

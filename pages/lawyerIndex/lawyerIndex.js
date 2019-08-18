@@ -1,16 +1,11 @@
-// pages/index/index.js
+// pages/lawyerIndex/lawyerIndex.js
 Page({
-  options: {
-    addGlobalClass: true,
-  },
+
   /**
    * 页面的初始数据
    */
   data: {
-    elements: [
-      { title: '问律师', name: '咨询已关注的律师', color: 'mauve', icon: 'vipcard' },
-      { title: '看科普', name: '阅读科普文章', color: 'mauve', icon: 'formfill' }
-    ],
+
   },
 
   /**
@@ -34,7 +29,7 @@ Page({
     if (typeof this.getTabBar === 'function' &&
       this.getTabBar()) {
       this.getTabBar().setData({
-        selected: 0
+        selected: 2
       })
     }
   },

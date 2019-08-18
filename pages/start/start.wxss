@@ -1,0 +1,15 @@
+/* pages/start/start.wxss */
+.h3{
+  font-size: 18px;
+  text-align: center;
+  padding: 50rpx;
+}
+.btns{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 600rpx;
+  margin-left: 75rpx;
+  margin-top: 200rpx;
+}
