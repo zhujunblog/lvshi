@@ -1,11 +1,13 @@
-// pages/lawyerIndex/lawyerIndex.js
+// pages/my/my.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    starCount: 0,
+    forksCount: 0,
+    visitTotal: 0,
   },
 
   /**
@@ -29,7 +31,7 @@ Page({
     if (typeof this.getTabBar === 'function' &&
       this.getTabBar()) {
       this.getTabBar().setData({
-        selected: 3
+        selected: 2
       })
     }
   },

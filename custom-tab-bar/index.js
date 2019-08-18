@@ -20,6 +20,13 @@ Component({
       selectedIconPath: "/image/icon_API_HL.png",
       text: "接口"
     },
+      {
+        pagePath: "/pages/my/my",
+        iconPath: "/image/icon_API.png",
+        hide: type,
+        selectedIconPath: "/image/icon_API_HL.png",
+        text: "我的"
+      },
     {
       pagePath: "/pages/lawyerIndex/lawyerIndex",
       iconPath: "/image/icon_API.png",
@@ -46,6 +53,13 @@ Component({
         selectedIconPath: "/image/icon_API_HL.png",
         text: "接口"
       },
+        {
+          pagePath: "/pages/my/my",
+          iconPath: "/image/icon_API.png",
+          hide: type,
+          selectedIconPath: "/image/icon_API_HL.png",
+          text: "我的"
+        },
       {
         pagePath: "/pages/lawyerIndex/lawyerIndex",
         iconPath: "/image/icon_API.png",
