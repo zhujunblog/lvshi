@@ -10,6 +10,14 @@ Page({
     list: [],
     load: true
   },
+  onshow(){
+    if (typeof this.getTabBar === 'function' &&
+      this.getTabBar()) {
+      this.getTabBar().setData({
+        selected: 1
+      })
+    }
+  },
   onLoad() {
     wx.showLoading({
       title: '加载中...',

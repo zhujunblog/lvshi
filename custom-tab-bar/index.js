@@ -3,7 +3,6 @@ let index = wx.getStorageSync("type") == 1 ? 0 : 2;
 console.log(index);
 Component({
   data: {
-    
     selected:0,
     color: "#7A7E83",
     selectedColor: "#3cc51f",
