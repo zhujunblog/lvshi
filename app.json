@@ -5,7 +5,9 @@
     "pages/login/login",
     "pages/lawyerIndex/lawyerIndex",
     "pages/list/list",
-    "pages/my/my"
+    "pages/my/my",
+    "pages/lawyerMy/lawyerMy",
+    "pages/info/info"
   ],
   "tabBar": {
     "custom": true,
@@ -37,6 +39,12 @@
         "iconPath": "image/icon_API.png",
         "selectedIconPath": "image/icon_API_HL.png",
         "text": "接口"
+      },
+      {
+        "pagePath": "pages/lawyerMy/lawyerMy",
+        "iconPath": "image/icon_API.png",
+        "selectedIconPath": "image/icon_API_HL.png",
+        "text": "我的"
       }
     ]
   },
@@ -45,7 +53,6 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
-   
   },
   "sitemapLocation": "sitemap.json"
 }

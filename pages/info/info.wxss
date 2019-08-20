@@ -1,0 +1,86 @@
+/* pages/info/info.wxss */
+.infoTop{
+  width: 100%;
+  padding: 20rpx 40rpx;
+  /* padding-bottom: 20rpx; */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  
+}
+.infoTop .left{
+  width: 480rpx;
+}
+.infoTop .left >view{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.nameTool{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+.infoTop .left .name{
+  font-size: 42rpx;
+  color: #000;
+  margin-right: 40rpx;
+}
+.infoTop .left .pink{
+  width: 20rpx;
+  height: 20rpx;
+  border: 1px solid #000;
+}
+.tags{
+  margin-top: 20rpx;
+}
+.tags .cu-tag {
+  margin-right:10rpx !important;
+  margin-left: 0;
+  margin-bottom: 10rpx;
+}
+
+.infoTop .right{
+  width: 180rpx;
+}
+.infoTop .right image{
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 50%;
+  border: 1px solid #000;
+}
+
+/* 评价 */
+.comont{
+  width: 710rpx;
+  margin-left: 20rpx;
+  padding-top: 20rpx;
+  border-top: 1px solid #f0f0f0;
+}
+.comont .cu-tag {
+  margin-right:10rpx !important;
+  margin-left: 0;
+  margin-bottom: 15rpx;
+}
+
+/* 列表 */
+.list{
+  width: 100%;
+  background-color: #f0f0f0;
+  padding: 20rpx 0;
+}
+
+.textBox{
+  padding: 20rpx 30rpx;
+}
+.textLine{
+  width: 690rpx;
+  margin-left: 30rpx;
+  height: 2rpx;
+  /* background-color: #f0f0f0; */
+  margin-top: 20rpx;
+}

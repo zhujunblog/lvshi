@@ -1,0 +1,73 @@
+<view class='info'>
+  <view class='infoTop'>
+    <view class='left'>
+      <view class='nameTool'>
+         <text class='name'>刘子奇</text>
+         <button class="cu-btn round bg-blue sm">关注</button>
+      </view>
+      <view>
+        <view>
+          <image class='pink'></image>
+          <text>5.0</text>
+        </view>
+        <view>
+          患者关注数：917
+        </view>
+      </view> 
+      <view class='tags'>
+         <view class="cu-tag line-blue radius" wx:for="{{10}}">科学育儿</view>
+      </view>
+
+    </view>
+    <view class='right'>
+     <image src='' class='ava'></image>
+    </view>
+  </view>
+  <view class='comont'>
+    <view class="cu-tag bg-blue round" wx:for="{{5}}">普及相关知识(191)</view>
+  </view>
+
+  <view class='list cu-list menu'>
+    <view class="cu-item">
+      <view class="content">
+        <text class="cuIcon-form text-blue"></text>
+        <text class="text-grey">图文咨询</text>
+      </view>
+      <view class="action">
+        <text class='text-xs' >￥<text class="text-blue text-lg " >100</text>/次</text>
+        <button style='margin-left: 20rpx;' class="cu-btn round bg-blue shadow">咨询</button>
+      </view>
+    </view>
+    <view class="cu-item">
+      <view class="content">
+        <text class="cuIcon-dianhua text-blue"></text>
+        <text class="text-grey">电话咨询</text>
+      </view>
+      <view class="action">
+        <text class='text-xs' >￥<text class="text-blue text-lg " >100</text>/次</text>
+        <button style='margin-left: 20rpx;' class="cu-btn round bg-blue shadow">咨询</button>
+      </view>
+    </view>
+  </view>
+
+
+  <view class="cu-bar bg-white solid-bottom margin-top">
+    <view class="action">
+      <text class="cuIcon-title text-blue "></text> 个人简介
+    </view>
+  </view>
+  <view class='text-x textBox'>
+    医药专业，医学硕士，副主任医师，营养师，心理咨询师，于二科普作者，    医药专业，医学硕士，副主任医师，营养师，心理咨询师，于二科普作者
+  </view>
+
+  <view class="cu-bar bg-white solid-bottom margin-top">
+    <view class="action">
+      <text class="cuIcon-title text-blue "></text> 擅长
+    </view>
+  </view>
+  <view class='text-x textBox'>
+    医药专业，医学硕士，副主任医师，营养师，心理咨询师，于二科普作者，    医药专业，医学硕士，副主任医师，营养师，心理咨询师，于二科普作者
+  </view>
+
+
+</view>

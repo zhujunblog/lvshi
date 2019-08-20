@@ -32,7 +32,14 @@ Component({
       hide: !type,
       selectedIconPath: "/image/icon_API_HL.png",
       text: "接口"
-    }
+    },
+      {
+        pagePath: "/pages/lawyerMy/lawyerMy",
+        iconPath: "/image/icon_API.png",
+        hide: !type,
+        selectedIconPath: "/image/icon_API_HL.png",
+        text: "我的"
+      }
     ]
   },
   attached() {
@@ -65,7 +72,14 @@ Component({
         hide: !type,
         selectedIconPath: "/image/icon_API_HL.png",
         text: "接口"
-      }
+      },
+        {
+          pagePath: "/pages/lawyerMy/lawyerMy",
+          iconPath: "/image/icon_API.png",
+          hide: !type,
+          selectedIconPath: "/image/icon_API_HL.png",
+          text: "我的"
+        }
       ]
     })
   },

@@ -42,12 +42,31 @@
   overflow:hidden;
   text-overflow:ellipsis;
   display:-webkit-box;
-  -webkit-line-clamp:2;
+  -webkit-line-clamp:3;
   -webkit-box-orient:vertical;
   line-height: 1.4em;
 }
 .content{
   flex: 1;
+}
+.cu-list.menu-avatar>.cu-item {
+  position:relative;
+  display:flex;
+  padding-right:10rpx;
+  height:180rpx;
+  background-color:var(--white);
+  justify-content:flex-end;
+  align-items:center;
+
+}
+
+.cu-list.menu-avatar>.cu-item .content {
+  width:calc(100% - 96rpx - 120rpx - 60rpx);
+}
+
+.cu-list.menu-avatar>.cu-item .action{
+  width: 120rpx;
+  margin-top: 30rpx;
 }
 
 
