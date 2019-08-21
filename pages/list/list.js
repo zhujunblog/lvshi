@@ -74,5 +74,10 @@ Page({
         return false
       }
     }
+  },
+  jumpToinfo(){
+    wx.navigateTo({
+      url: '/pages/info/info',
+    })
   }
 })

@@ -1,13 +1,14 @@
-// pages/my/my.js
+// pages/consulting/consulting.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    starCount: 0,
-    forksCount: 0,
-    visitTotal: 0,
+    picker: ['类型1', '类型2'],
+    index: '',
+    region:['省','市','区'],
+    showModule: false,
   },
 
   /**
@@ -28,17 +29,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    if (typeof this.getTabBar === 'function' &&
-      this.getTabBar()) {
-      this.getTabBar().setData({
-        selected: 4
-      })
-    }
+
   },
-  jumpToLawyerInfo(){
-    wx.navigateTo({
-      url: '/pages/laywerInfo/laywerInfo',
-    })
+  showModuleFn(){
+   this.setData({
+     showModule: true
+   })
   },
   /**
    * 生命周期函数--监听页面隐藏

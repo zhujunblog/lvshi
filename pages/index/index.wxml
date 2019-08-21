@@ -1,5 +1,5 @@
 <!--pages/index/index.wxml-->
-<view>
+<view class='indexBOx'>
   <view class='imgsTop'>
     <image src='../../image/top.jpg'></image>
   </view>

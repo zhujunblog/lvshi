@@ -35,7 +35,7 @@
       </view>
       <view class="action">
         <text class='text-xs' >￥<text class="text-blue text-lg " >100</text>/次</text>
-        <button style='margin-left: 20rpx;' class="cu-btn round bg-blue shadow">咨询</button>
+        <button style='margin-left: 20rpx;' bindtap='jumpToconsulting' class="cu-btn round bg-blue shadow">咨询</button>
       </view>
     </view>
     <view class="cu-item">
@@ -45,13 +45,13 @@
       </view>
       <view class="action">
         <text class='text-xs' >￥<text class="text-blue text-lg " >100</text>/次</text>
-        <button style='margin-left: 20rpx;' class="cu-btn round bg-blue shadow">咨询</button>
+        <button style='margin-left: 20rpx;' bindtap='jumpToconsulting' class="cu-btn round bg-blue shadow">咨询</button>
       </view>
     </view>
   </view>
 
 
-  <view class="cu-bar bg-white solid-bottom margin-top">
+  <view class="cu-bar bg-white solid-bottom">
     <view class="action">
       <text class="cuIcon-title text-blue "></text> 个人简介
     </view>
@@ -60,9 +60,18 @@
     医药专业，医学硕士，副主任医师，营养师，心理咨询师，于二科普作者，    医药专业，医学硕士，副主任医师，营养师，心理咨询师，于二科普作者
   </view>
 
-  <view class="cu-bar bg-white solid-bottom margin-top">
+  <view class="cu-bar bg-white solid-bottom solid-top margin-top">
     <view class="action">
       <text class="cuIcon-title text-blue "></text> 擅长
+    </view>
+  </view>
+  <view class='text-x textBox'>
+    医药专业，医学硕士，副主任医师，营养师，心理咨询师，于二科普作者，    医药专业，医学硕士，副主任医师，营养师，心理咨询师，于二科普作者
+  </view>
+
+  <view class="cu-bar bg-white solid-bottom solid-top margin-top">
+    <view class="action">
+      <text class="cuIcon-title text-blue "></text> 执业经历
     </view>
   </view>
   <view class='text-x textBox'>

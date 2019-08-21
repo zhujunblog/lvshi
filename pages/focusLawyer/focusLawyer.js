@@ -1,13 +1,11 @@
-// pages/my/my.js
+// pages/focusLawyer/focusLawyer.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    starCount: 0,
-    forksCount: 0,
-    visitTotal: 0,
+
   },
 
   /**
@@ -28,16 +26,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    if (typeof this.getTabBar === 'function' &&
-      this.getTabBar()) {
-      this.getTabBar().setData({
-        selected: 4
-      })
-    }
+
   },
-  jumpToLawyerInfo(){
+  jumpToinfo() {
     wx.navigateTo({
-      url: '/pages/laywerInfo/laywerInfo',
+      url: '/pages/info/info',
     })
   },
   /**

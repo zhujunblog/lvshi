@@ -7,7 +7,12 @@
     "pages/list/list",
     "pages/my/my",
     "pages/lawyerMy/lawyerMy",
-    "pages/info/info"
+    "pages/info/info",
+    "pages/lawyerInfo/lawyerInfo",
+    "pages/userInfo/userinfo",
+    "pages/focusLawyer/focusLawyer",
+    "pages/consulting/consulting",
+    "pages/userOrder/userOrder"
   ],
   "tabBar": {
     "custom": true,

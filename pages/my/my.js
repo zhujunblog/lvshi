@@ -35,7 +35,21 @@ Page({
       })
     }
   },
-
+  jumpTouserInfo(){
+    wx.navigateTo({
+      url: '/pages/userInfo/userinfo',
+    })
+  },
+  jumpTofocusLawyer(){
+    wx.navigateTo({
+      url: '/pages/focusLawyer/focusLawyer',
+    })
+  },
+  jumpToUserOrder() {
+    wx.navigateTo({
+      url: '/pages/userOrder/userOrder',
+    })
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */

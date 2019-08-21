@@ -11,26 +11,30 @@
   </view>
 
   
-   <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
-    <view class="cu-item arrow">
+   <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius" >
+    <view class="cu-item arrow" bindtap='jumpTouserInfo'>
       <view class="content"  >
         <text class="cuIcon-profilefill text-orange"></text>
         <text class="text-grey">我的信息</text>
       </view>
     </view>
     
-    <view class="cu-item arrow">
-      <navigator class="content" url="/pages/about/log/log" hover-class="none">
-        <text class="cuIcon-formfill text-green"></text>
-        <text class="text-grey">我的订单</text>
-      </navigator>
+    <view class="cu-item arrow" bindtap='jumpToUserOrder'>
+       <view class="cu-item arrow">
+        <view class="content"  >
+          <text class="cuIcon-formfill text-green"></text>
+          <text class="text-grey">我的订单</text>
+        </view>
+      </view>
     </view>
 
-    <view class="cu-item arrow">
-      <navigator class="content" url="/pages/about/log/log" hover-class="none">
-        <text class="cuIcon-friendfill text-blue"></text>
-        <text class="text-grey">我关注的律师</text>
-      </navigator>
+    <view class="cu-item arrow" bindtap='jumpTofocusLawyer'>
+       <view class="cu-item arrow">
+        <view class="content"  >
+          <text class="cuIcon-friendfill text-blue"></text>
+          <text class="text-grey">我关注的律师</text>
+        </view>
+      </view>
     </view>
 
     <view class="cu-item arrow">

@@ -1,8 +1,14 @@
 <!--pages/start/start.wxml  启动页面-->
 <view class='startBox'>
    <view class='h3'>永不打烊的律所</view>
-   <view class='btns' wx:if="{{isShowBtn}}">
-      <van-button type="primary" bind:click="jumpToUser">用户端</van-button>
-      <van-button type="primary" bind:click="jumpToLawyer">律师端</van-button>
+   <view wx:if="{{isShowBtn}}">
+      <!-- <van-button type="primary" bind:click="jumpToUser">用户端</van-button>
+      <van-button type="primary" bind:click="jumpToLawyer">律师端</van-button> -->
+
+      <view class="padding flex flex-direction">
+        <button class="cu-btn bg-green lg" bindtap='jumpToUser' >用户端</button>
+        <button class="cu-btn bg-blue margin-tb-sm lg" bindtap='jumpToLawyer'>律师端</button>
+      </view>
+
    </view>
 </view>

@@ -28,7 +28,11 @@ Page({
   onShow: function () {
 
   },
-
+  jumpToconsulting(){
+    wx.navigateTo({
+      url: '/pages/consulting/consulting',
+    })
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */

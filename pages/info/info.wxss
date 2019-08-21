@@ -1,4 +1,8 @@
 /* pages/info/info.wxss */
+.info{
+  /* background-color: #fff; */
+  margin-bottom: 30rpx;
+}
 .infoTop{
   width: 100%;
   padding: 20rpx 40rpx;
@@ -7,8 +11,9 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  
+  background-color: #fff;
 }
+
 .infoTop .left{
   width: 480rpx;
 }
@@ -56,10 +61,10 @@
 
 /* 评价 */
 .comont{
-  width: 710rpx;
-  margin-left: 20rpx;
-  padding-top: 20rpx;
+  width: 750rpx;
+  padding:20rpx 20rpx;
   border-top: 1px solid #f0f0f0;
+  background-color: #fff;
 }
 .comont .cu-tag {
   margin-right:10rpx !important;
@@ -71,11 +76,13 @@
 .list{
   width: 100%;
   background-color: #f0f0f0;
-  padding: 20rpx 0;
+  padding: 30rpx 0;
 }
 
 .textBox{
   padding: 20rpx 30rpx;
+  padding-bottom: 40rpx;
+  background-color: #fff;
 }
 .textLine{
   width: 690rpx;

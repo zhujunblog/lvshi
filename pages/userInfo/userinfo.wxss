@@ -1,0 +1,29 @@
+/* pages/lawyerInfo/lawyerInfo.wxss */
+.cu-form-group .title {
+  min-width: calc(4em + 30rpx);
+}
+.laywerInfo{
+  background-color: #f0f0f0;
+}
+.cu-form-group .picker{
+  text-align: left !important;
+}
+.cu-form-group .picker .text{
+  color: #555;
+}
+
+.tags{
+  margin:20rpx 0;
+}
+.tags .cu-tag {
+  margin-right:25rpx !important;
+  margin-left: 0;
+  margin-bottom: 10rpx;
+  font-size: 28rpx;
+  height: 60rpx;
+}
+.closeIcon{
+  position: absolute;
+  top: -12rpx;
+  right: -12rpx;
+}

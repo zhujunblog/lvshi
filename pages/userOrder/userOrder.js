@@ -1,13 +1,11 @@
-// pages/my/my.js
+// pages/userOrder/userOrder.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    starCount: 0,
-    forksCount: 0,
-    visitTotal: 0,
+    TabCur: 0
   },
 
   /**
@@ -28,16 +26,17 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    if (typeof this.getTabBar === 'function' &&
-      this.getTabBar()) {
-      this.getTabBar().setData({
-        selected: 4
-      })
-    }
+
   },
-  jumpToLawyerInfo(){
+  tabSelect(e) {
+    this.setData({
+      TabCur: e.currentTarget.dataset.id,
+      // scrollLeft: (e.currentTarget.dataset.id - 1) * 60
+    })
+  },
+  jumpToconsulting() {
     wx.navigateTo({
-      url: '/pages/laywerInfo/laywerInfo',
+      url: '/pages/consulting/consulting',
     })
   },
   /**
