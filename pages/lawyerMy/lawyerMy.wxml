@@ -9,8 +9,8 @@
     <image src="https://image.weilanwl.com/gif/wave.gif" mode="scaleToFill" class="gif-wave"></image>
   </view>
 
-   <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius" bindtap='jumpToLawyerInfo'>
-    <view class="cu-item arrow">
+   <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius" >
+    <view class="cu-item arrow" bindtap='jumpToLawyerInfo'>
       <view class="content"  >
         <text class="cuIcon-profilefill text-orange"></text>
         <text class="text-grey">我的信息</text>
@@ -18,24 +18,24 @@
     </view>
     
     <view class="cu-item arrow">
-      <navigator class="content" url="/pages/about/log/log" hover-class="none">
+      <view class="content"  >
         <text class="cuIcon-formfill text-green"></text>
         <text class="text-grey">我的订单</text>
-      </navigator>
+      </view>
     </view>
 
     <view class="cu-item arrow">
-      <navigator class="content" url="/pages/about/log/log" hover-class="none">
+      <view class="content"  >
         <text class="cuIcon-medalfill text-blue"></text>
         <text class="text-grey">申请认证</text>
-      </navigator>
+      </view>
     </view>
 
     <view class="cu-item arrow">
-      <navigator class="content" url="/pages/about/log/log" hover-class="none">
+      <view class="content"  >
         <text class="cuIcon-moneybagfill text-yellow"></text>
         <text class="text-grey">申请提现</text>
-      </navigator>
+      </view>
     </view>
 
 
@@ -47,10 +47,10 @@
     </view>
 
     <view class="cu-item arrow">
-      <navigator class="content" url="/pages/about/about/about" hover-class="none">
+      <view class="content"  >
         <image src="/images/logo.png" class="png" mode="aspectFit"></image>
         <text class="text-grey">关于我们</text>
-      </navigator>
+      </view>
     </view>
 
   </view>

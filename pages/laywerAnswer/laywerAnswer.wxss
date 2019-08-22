@@ -1,0 +1,4 @@
+/* pages/laywerAnswer/laywerAnswer.wxss */
+.laywerAnswer{
+  overflow: auto;
+}

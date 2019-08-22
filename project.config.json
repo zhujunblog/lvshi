@@ -40,7 +40,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 9,
+			"current": 12,
 			"list": [
 				{
 					"id": -1,
@@ -109,6 +109,27 @@
 					"id": -1,
 					"name": "userOrder",
 					"pathName": "pages/userOrder/userOrder",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "lawyerIndex",
+					"pathName": "pages/lawyerIndex/lawyerIndex",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "jumpToConsultingInfo",
+					"pathName": "pages/jumpToConsultingInfo/jumpToConsultingInfo",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "laywerAnswer",
+					"pathName": "pages/laywerAnswer/laywerAnswer",
 					"scene": null
 				}
 			]

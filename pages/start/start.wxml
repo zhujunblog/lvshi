@@ -4,9 +4,8 @@
    <view wx:if="{{isShowBtn}}">
       <!-- <van-button type="primary" bind:click="jumpToUser">用户端</van-button>
       <van-button type="primary" bind:click="jumpToLawyer">律师端</van-button> -->
-
-      <view class="padding flex flex-direction">
-        <button class="cu-btn bg-green lg" bindtap='jumpToUser' >用户端</button>
+      <view class="padding margin flex flex-direction">
+        <button class="cu-btn bg-green margin-tb-sm lg" bindtap='jumpToUser' >用户端</button>
         <button class="cu-btn bg-blue margin-tb-sm lg" bindtap='jumpToLawyer'>律师端</button>
       </view>
 

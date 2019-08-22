@@ -1,11 +1,11 @@
-// pages/lawyerIndex/lawyerIndex.js
+// pages/jumpToConsultingInfo/jumpToConsultingInfo.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    TabCur:0,
+
   },
 
   /**
@@ -26,22 +26,11 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    if (typeof this.getTabBar === 'function' &&
-      this.getTabBar()) {
-      this.getTabBar().setData({
-        selected: 3
-      })
-    }
+
   },
-  tabSelect(e) {
-    this.setData({
-      TabCur: e.currentTarget.dataset.id,
-      // scrollLeft: (e.currentTarget.dataset.id - 1) * 60
-    })
-  },
-  jumpToConsultingInfo(){
+  jumpTolaywerAnswer(){
     wx.navigateTo({
-      url: '/pages/jumpToConsultingInfo/jumpToConsultingInfo',
+      url: '/pages/laywerAnswer/laywerAnswer',
     })
   },
   /**

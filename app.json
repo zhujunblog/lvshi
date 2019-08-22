@@ -12,7 +12,10 @@
     "pages/userInfo/userinfo",
     "pages/focusLawyer/focusLawyer",
     "pages/consulting/consulting",
-    "pages/userOrder/userOrder"
+    "pages/userOrder/userOrder",
+    "pages/jumpToConsultingInfo/jumpToConsultingInfo",
+    "pages/laywerAnswer/laywerAnswer",
+    "pages/certification/certification"
   ],
   "tabBar": {
     "custom": true,

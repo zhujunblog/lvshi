@@ -37,7 +37,7 @@ Page({
   },
   jumpToLawyerInfo(){
     wx.navigateTo({
-      url: '/pages/laywerInfo/laywerInfo',
+      url: '/pages/lawyerInfo/lawyerInfo',
     })
   },
   /**
