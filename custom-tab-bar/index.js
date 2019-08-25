@@ -11,13 +11,13 @@ Component({
       iconPath: "/image/icon_component.png",
       hide: type,
       selectedIconPath: "/image/icon_component_HL.png",
-      text: "组件"
+      text: "首页"
     }, {
         pagePath: "/pages/list/list",
       iconPath: "/image/icon_API.png",
       hide: type,
       selectedIconPath: "/image/icon_API_HL.png",
-      text: "接口"
+      text: "分类"
     },
       {
         pagePath: "/pages/my/my",
@@ -31,7 +31,7 @@ Component({
       iconPath: "/image/icon_API.png",
       hide: !type,
       selectedIconPath: "/image/icon_API_HL.png",
-      text: "接口"
+      text: "首页"
     },
       {
         pagePath: "/pages/lawyerMy/lawyerMy",
@@ -51,13 +51,13 @@ Component({
         iconPath: "/image/icon_component.png",
         hide: type,
         selectedIconPath: "/image/icon_component_HL.png",
-        text: "组件"
+        text: "首页"
       }, {
           pagePath: "/pages/list/list",
         iconPath: "/image/icon_API.png",
         hide: type,
         selectedIconPath: "/image/icon_API_HL.png",
-        text: "接口"
+        text: "分类"
       },
         {
           pagePath: "/pages/my/my",
@@ -71,7 +71,7 @@ Component({
         iconPath: "/image/icon_API.png",
         hide: !type,
         selectedIconPath: "/image/icon_API_HL.png",
-        text: "接口"
+        text: "首页"
       },
         {
           pagePath: "/pages/lawyerMy/lawyerMy",

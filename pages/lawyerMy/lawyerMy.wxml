@@ -17,7 +17,7 @@
       </view>
     </view>
     
-    <view class="cu-item arrow">
+    <view class="cu-item arrow" bindtap='jumpToLaywerOrder'>
       <view class="content"  >
         <text class="cuIcon-formfill text-green"></text>
         <text class="text-grey">我的订单</text>

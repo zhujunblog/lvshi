@@ -15,7 +15,8 @@
     "pages/userOrder/userOrder",
     "pages/jumpToConsultingInfo/jumpToConsultingInfo",
     "pages/laywerAnswer/laywerAnswer",
-    "pages/certification/certification"
+    "pages/certification/certification",
+    "pages/lawyerOrder/lawyerOrder"
   ],
   "tabBar": {
     "custom": true,

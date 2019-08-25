@@ -1,4 +1,5 @@
 // pages/my/my.js
+import { isLogin } from '../../utils/utils.js';
 Page({
 
   /**
@@ -36,16 +37,25 @@ Page({
     }
   },
   jumpTouserInfo(){
+    if(!isLogin()){
+     return false;
+    }
     wx.navigateTo({
       url: '/pages/userInfo/userinfo',
     })
   },
   jumpTofocusLawyer(){
+    if (!isLogin()) {
+      return false;
+    }
     wx.navigateTo({
       url: '/pages/focusLawyer/focusLawyer',
     })
   },
   jumpToUserOrder() {
+    if (!isLogin()) {
+      return false;
+    }
     wx.navigateTo({
       url: '/pages/userOrder/userOrder',
     })

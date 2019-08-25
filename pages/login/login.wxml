@@ -8,7 +8,10 @@
    <view></view>
    仅用于XXX展示个人信息</view>
 
-  
-   
-    <button class='button' open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权     </button>
+    <!-- <button class='button' open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权     </button> -->
+    <view class="padding margin flex flex-direction">
+        <button class="cu-btn bg-green margin-tb-sm lg" open-type="getUserInfo" bindgetuserinfo="getUserInfo" >授权</button>
+        <button class="cu-btn bg-blue margin-tb-sm lg" >取消</button>
+      </view>
+
 </view>

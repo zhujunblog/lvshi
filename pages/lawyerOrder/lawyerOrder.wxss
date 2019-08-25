@@ -1,0 +1,16 @@
+/* pages/lawyerIndex/lawyerIndex.wxss */
+.laywerIndex{
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+}
+.list{
+  margin-top: 90rpx;
+}
+.item{
+  box-shadow: 0 0 60rpx 4rpx #f3f3f3;
+}

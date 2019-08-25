@@ -1,16 +1,54 @@
 const app = getApp()
 Page({
   data: {
-    StatusBar: app.globalData.StatusBar,
-    CustomBar: app.globalData.CustomBar,
-    Custom: app.globalData.Custom,
     TabCur: 0,
     MainCur: 0,
     VerticalNavTop: 0,
-    list: [],
+    list: [
+      {
+        id: 0,
+        name: '全部'
+      },
+      {
+        id: 1,
+        name: '房屋买卖'
+      },
+      {
+        id:2,
+        name: '房屋租聘'
+      },
+      {
+        id: 3,
+        name: '婚姻',
+      },
+      {
+        id: 4,
+        name: '继承',
+      },
+      {
+        id: 5,
+        name: '合同'
+      },
+      {
+        id: 6,
+        name: '劳动合同'
+      },
+      {
+        id: 7,
+        name: '知识产权'
+      },
+      {
+        id: 8,
+        name: '债权'
+      },
+      {
+        id: 9,
+        name: '交通肇事'
+      }
+    ],
     load: true
   },
-  onshow(){
+  onShow(){
     if (typeof this.getTabBar === 'function' &&
       this.getTabBar()) {
       this.getTabBar().setData({
@@ -23,15 +61,9 @@ Page({
       title: '加载中...',
       mask: true
     });
-    let list = [{}];
-    for (let i = 0; i < 10; i++) {
-      list[i] = {};
-      list[i].name = String.fromCharCode(65 + i);
-      list[i].id = i;
-    }
+
     this.setData({
-      list: list,
-      listCur: list[0]
+      listCur: this.data.list[0]
     })
   },
   onReady() {
