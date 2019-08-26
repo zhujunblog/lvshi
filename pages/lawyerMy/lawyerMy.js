@@ -1,5 +1,7 @@
 // pages/my/my.js
 import { isLogin } from '../../utils/utils.js';
+import { lawyerMy} from './module.js';
+const http = new lawyerMy();
 Page({
 
   /**

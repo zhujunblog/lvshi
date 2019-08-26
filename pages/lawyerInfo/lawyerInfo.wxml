@@ -3,27 +3,24 @@
    <view class='from'>
       <view class="cu-form-group">
         <view class="title">姓名</view>
-        <input placeholder="请输入姓名"></input>
+        <input placeholder="请输入姓名" bindinput="getrealName"></input>
       </view>
+
       <view class="cu-form-group">
-        <view class="title">性别</view>
-        <!-- <input placeholder="请选择性别"></input> -->
-        <picker bindchange="PickerChange" value="{{index}}" range="{{picker}}">
+        <view class="title">地址</view>
+        <picker bindchange="getuserAddress"  mode="region" value="{{region}}" >
           <view class="picker">
-             <text wx:if="{{index}}">{{picker[index]}}</text>
-             <text class='text' wx:else>请选择性别</text>
-            <!-- {{index ? picker[index]: '请选择性别'}} -->
+             <text wx:if="{{region.length > 0}}">{{region[0]}}，{{region[1]}}，{{region[2]}}</text>
+             <text class='text' wx:else>请选择地址</text>
           </view>
         </picker>
       </view>
-      <view class="cu-form-group">
-        <view class="title">年龄</view>
-        <input placeholder="统一标题的宽度"></input>
-      </view>
+
       <view class="cu-form-group">
         <view class="title">电话</view>
-        <input placeholder="统一标题的宽度"></input>
+        <input placeholder="统一标题的宽度" bindinput='gettelephone'></input>
       </view>
+
       <view class="cu-bar bg-white margin-top">
         <view class="action">
           上传头像
@@ -36,9 +33,9 @@
         <view class="grid col-4 grid-square flex-sub">
           <view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
             <image src='{{imgList[index]}}' mode='aspectFill'></image>
-            <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+            <!-- <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
               <text class="cuIcon-close"></text>
-            </view>
+            </view> -->
           </view>
           <view class="solids" bindtap="ChooseImage">
             <text class="cuIcon-cameraadd"></text>
@@ -46,6 +43,36 @@
       </view>
       </view>
       
+
+      <view class="cu-bar bg-white margin-top">
+        <view class="action">
+          <text class="cuIcon-title text-orange "></text>选择主要类目（多选）
+        </view>
+        <view class="action">
+          <button class="cu-btn bg-green shadow" bindtap="showModal" data-target="ChooseModal">选择</button>
+        </view>
+      </view>
+      <view class="cu-form-group">
+        <view class='tags'>
+          <view class="cu-tag line-blue radius lg" wx:for="{{checkbox}}"  style='position:relative;'  bindtap='delectKeyword' data-index='{{index}}' wx:if="{{item.checked}}">
+          {{item.name}}
+          </view>
+        </view>
+      </view>
+      <view class="cu-modal bottom-modal {{modalName=='ChooseModal'?'show':''}}" bindtap="hideModal">
+        <view class="cu-dialog" catchtap>
+          <view class="cu-bar bg-white">
+            <view class="action text-blue" bindtap="hideModal">取消</view>
+            <view class="action text-green" bindtap="hideModal">确定</view>
+          </view>
+          <view class="grid col-3 padding-sm">
+            <view wx:for="{{checkbox}}" class="padding-xs" wx:key="{{index}}">
+              <button class="cu-btn orange lg block {{item.checked?'bg-orange':'line-orange'}}" bindtap="ChooseCheckbox" data-value="{{item.value}}"> {{item.name}}
+              </button>
+            </view>
+          </view>
+        </view>
+      </view>
 
       <view class="cu-form-group margin-top">
         <view class="title">关键字</view>
@@ -68,7 +95,7 @@
         </view>
       </view>
       <view class="cu-form-group solid-top">
-        <textarea maxlength="-1"  placeholder="请输入简介"></textarea>
+        <textarea maxlength="-1" bindinput='getselfData' placeholder="请输入简介"></textarea>
       </view>
       
       <view class="cu-bar bg-white margin-top">
@@ -77,7 +104,7 @@
         </view>
       </view>
       <view class="cu-form-group solid-top">
-        <textarea maxlength="-1"  placeholder="请输入擅长"></textarea>
+        <textarea maxlength="-1" bindinput='getgoodAt' placeholder="请输入擅长"></textarea>
       </view>
 
       <view class="cu-bar bg-white margin-top">
@@ -86,7 +113,7 @@
         </view>
       </view>
       <view class="cu-form-group solid-top">
-        <textarea maxlength="-1"  placeholder="请输入执业经历"></textarea>
+        <textarea maxlength="-1" bindinput='getworkExperience'  placeholder="请输入执业经历"></textarea>
       </view>
 
         
@@ -94,7 +121,7 @@
 
    <view class="padding flex flex-direction">
     <!-- <button class="cu-btn bg-grey lg">玄灰</button> -->
-    <button class="cu-btn bg-blue margin-tb-sm lg">提交</button>
+    <button class="cu-btn bg-blue margin-tb-sm lg" bindtap='submit'>提交</button>
   </view>
 
 </view>

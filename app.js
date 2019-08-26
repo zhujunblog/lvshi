@@ -41,11 +41,20 @@ App({
                       method: "POST",
                       success: (res) => {
                         console.log(res);
+                        let type = res.data.user.userType;
                         wx.setStorageSync("session", res.data.token);
+                        wx.setStorageSync("userType", type);
                         wx.hideLoading()
-                        wx.switchTab({
-                          url: '/pages/index/index'
-                        })
+                        if(type == 1){
+                          wx.switchTab({
+                            url: '/pages/index/index'
+                          })
+                        }else{
+                          wx.switchTab({
+                            url: '/pages/lawyerIndex/lawyerIndex'
+                          })
+                        }
+                        
                       }
                     })
 
