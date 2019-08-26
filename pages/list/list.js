@@ -1,4 +1,6 @@
-const app = getApp()
+import {list} from './module.js';
+const app = getApp();
+const http = new list();
 Page({
   data: {
     TabCur: 0,
@@ -54,7 +56,9 @@ Page({
       this.getTabBar().setData({
         selected: 1
       })
-    }
+    };
+
+    this.getLawyerList();
   },
   onLoad() {
     wx.showLoading({
@@ -110,6 +114,20 @@ Page({
   jumpToinfo(){
     wx.navigateTo({
       url: '/pages/info/info',
+    })
+  },
+  /**
+   * 获取律师列表
+   */
+  getLawyerList(){
+    let data = {
+      pageNumber: 1,
+      pageSize: 99999,
+      userLabel: '',
+    };
+    http.getList(data)
+    .then(res => {
+       console.log(res);
     })
   }
 })

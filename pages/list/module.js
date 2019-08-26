@@ -9,26 +9,11 @@ class list extends HTTP {
   /**
    * 获取律师列表
    */
-  getList() {
-    let data = {
-      
-    }
+  getList(data) {
     return this.request('/wxuser/getLawyerList', data, "POST");
   }
 
-  pay() {
-    let data = {
-      money: 1
-    }
-
-    return this.request('/wxuser/wxPay', data, "POST");
-  }
-
-  getOrderList() {
-    let data = {
-    }
-    return this.request('/wxuser/getMyOrder', data, 'POST');
-  }
+  
 }
 
 export { list };
