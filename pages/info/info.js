@@ -5,14 +5,20 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    info: {},
+    userLabel: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // console.log();
+    let info = JSON.parse(options.item);
+    this.setData({
+      info: info,
+      userLabel: info.userLabel.split(',')
+    })
   },
 
   /**
@@ -30,7 +36,7 @@ Page({
   },
   jumpToconsulting(){
     wx.navigateTo({
-      url: '/pages/consulting/consulting',
+      url: '/pages/consulting/consulting?lawyer=' + JSON.stringify(this.data.info),
     })
   },
   /**

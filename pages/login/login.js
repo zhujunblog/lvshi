@@ -71,6 +71,7 @@ Page({
           // 授权成功
           wx.setStorageSync("session", data.token);
           wx.setStorageSync("userType", wx.getStorageSync("type") || 1);
+          wx.setStorageSync("userInfo", res.data.user);
           wx.hideLoading();
           wx.navigateBack();
         }

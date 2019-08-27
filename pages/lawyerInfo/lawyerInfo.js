@@ -61,6 +61,9 @@ Page({
     workExperience: null,
     imgList: [],
     lab: [],
+    imgSrc: null,
+    lawyerPrice: null,
+    photoPrice: null
   },
 
   /**
@@ -81,7 +84,39 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    let userInfo = wx.getStorageSync("userInfo") || null;
+    if(userInfo){
+      this.setData({
+        realName: userInfo.realName,
+        telephone: userInfo.telephone,
+        selfData: userInfo.selfData,
+        goodAt: userInfo.goodAt,
+        workExperience: userInfo.workExperience,
+        imgSrc: userInfo.headImage,
+        userAddress: userInfo.userAddress,
+        region: userInfo.userAddress.split(','),
+        lawyerPrice: userInfo.lawyerPrice == 0 ? null : userInfo.lawyerPrice,
+        photoPrice: userInfo.photoPrice == 0 ? null : userInfo.photoPrice
+      })
 
+      // 设置标签
+      let lab = userInfo.userLabel.split(',');
+      let labList = this.data.checkbox;
+      for (let i = lab.length-1; i >=0 ; i--){
+        let item = lab[i];
+        for (let y = 0; y < labList.length; y++){
+           if(item == labList[y].name){
+             labList[y].checked = true;
+             lab.splice(i,1);
+           }
+        }
+      }
+      this.setData({
+        checkbox: labList,
+        keywords: lab
+      })
+
+    }
   },
   showModal(e) {
     this.setData({
@@ -116,6 +151,7 @@ Page({
       sourceType: ['album'], //从相册选择
       success: (res) => {
         this.setData({
+          imgSrc: null,
           imgList: res.tempFilePaths
         })
 
@@ -204,7 +240,7 @@ Page({
     let data = e.detail.value;
     this.setData({
       region: data,
-      userAddress: data[0]+data[1]+data[2]
+      userAddress: data.join()
     })
   },
   /**
@@ -243,12 +279,28 @@ Page({
     })
   },
   /**
+   * 获取电话咨询价格
+   */
+  getphotoPrice(e){
+    this.setData({
+      photoPrice: e.detail.value
+    })
+  },
+  /**
+   * 获取图文咨询价格
+   */
+  getlawyerPrice(e){
+    this.setData({
+      lawyerPrice: e.detail.value
+    })
+  },
+  /**
    * 提交用户信息
    */
   submit(){
-    // if (!this.isValue()){
-    //   return false;
-    // }
+    if (!this.isValue()){
+      return false;
+    }
 
     //  上传图片
 
@@ -259,11 +311,13 @@ Page({
         realName: this.data.realName,
         telephone: this.data.telephone,
         userAddress: this.data.userAddress,
-        headImage: this.data.headImage,
+        headImage: this.data.imgSrc,
         userLabel: userLabel.join(),
         selfData: this.data.selfData,
         goodAt: this.data.goodAt,
-        workExperience: this.data.workExperience
+        workExperience: this.data.workExperience,
+        lawyerPrice: this.data.lawyerPrice,
+        photoPrice: this.data.photoPrice
       }
       http.getList(data)
         .then((res) => {
@@ -284,9 +338,11 @@ Page({
           userLabel: userLabel.join(),
           selfData: this.data.selfData,
           goodAt: this.data.goodAt,
-          workExperience: this.data.workExperience
+          workExperience: this.data.workExperience,
+          lawyerPrice: this.data.lawyerPrice,
+          photoPrice: this.data.photoPrice
         }
-
+        console.log(data);
         http.getList(data)
           .then((res) => {
             wx.showToast({
@@ -326,6 +382,24 @@ Page({
     if (!this.data.telephone){
       wx.showToast({
         title: '请输入电话',
+        icon: 'none'
+      })
+      return false;
+    }
+    console.log(this.data.photoPrice * 1);
+    if (this.data.photoPrice*1 <= 0){
+      console.log(this.data.photoPrice * 1);
+      wx.showToast({
+        title: '请输入正确的价格',
+        icon: 'none'
+      })
+      return false;
+    }
+
+    if (this.data.lawyerPrice*1 <= 0) {
+      console.log(this.data.lawyerPrice * 1);
+      wx.showToast({
+        title: '请输入正确的价格',
         icon: 'none'
       })
       return false;

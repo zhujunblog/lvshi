@@ -15,18 +15,19 @@
     </view>
   </scroll-view>
   <scroll-view class="VerticalMain" scroll-y scroll-with-animation style="height:calc(100vh - 196rpx)" scroll-into-view="main-{{MainCur}}" bindscroll="VerticalMain">
-    <view class="padding-top padding-lr" wx:for="{{list}}" wx:key id="main-{{index}}">
+    <view class="padding-top padding-lr" >
       <view class='cu-bar solid-bottom bg-white'>
         <view class='action'>
-          <text class='cuIcon-title text-blue'></text> {{item.name}} </view>
+          <text class='cuIcon-title text-blue'></text> {{title}} </view>
       </view>
       <view class="cu-list menu-avatar">
-        <view class="cu-item" wx:for="{{5}}" bindtap='jumpToinfo'>
-          <view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg);"></view>
+        <view class="padding bg-white flex justify-center" wx:if="{{lawyerList.length == 0}}">暂无律师</view>
+        <view class="cu-item" wx:for="{{lawyerList}}" wx:key bindtap='jumpToinfo' data-id="{{index}}">
+          <view class="cu-avatar round lg" style="background-image:url({{item.headImage}});"></view>
           <view class="content">
-            <view class="name">凯尔</view>
+            <view class="name">{{item.nickname}}</view>
             <view class="text-gray text-sm flex">
-              <view class="lineTwo">我已天理为凭，踏入这片荒芜，不再受凡人的枷锁遏制。我已天理为凭，踏入这片荒芜，不再受凡人的枷锁遏制。
+              <view class="lineTwo">{{item.selfData}}
               </view>
             </view>
           </view>

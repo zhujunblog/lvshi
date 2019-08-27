@@ -17,7 +17,7 @@ Page({
       },
       {
         id:2,
-        name: '房屋租聘'
+        name: '房屋租赁'
       },
       {
         id: 3,
@@ -48,6 +48,10 @@ Page({
         name: '交通肇事'
       }
     ],
+    lawyerList: [
+
+    ],
+    title: '全部',
     load: true
   },
   onShow(){
@@ -61,24 +65,23 @@ Page({
     this.getLawyerList();
   },
   onLoad() {
-    wx.showLoading({
-      title: '加载中...',
-      mask: true
-    });
+   
 
     this.setData({
       listCur: this.data.list[0]
     })
   },
   onReady() {
-    wx.hideLoading()
+    
   },
   tabSelect(e) {
     this.setData({
       TabCur: e.currentTarget.dataset.id,
-      MainCur: e.currentTarget.dataset.id,
-      VerticalNavTop: (e.currentTarget.dataset.id - 1) * 50
-    })
+      title: this.data.list[e.currentTarget.dataset.id].name
+      // MainCur: e.currentTarget.dataset.id,
+      // VerticalNavTop: (e.currentTarget.dataset.id - 1) * 50
+    });
+    this.getLawyerList();
   },
   VerticalMain(e) {
     let that = this;
@@ -111,23 +114,46 @@ Page({
       }
     }
   },
-  jumpToinfo(){
+  jumpToinfo(e){
+    console.log(e);
+    let index = e.currentTarget.dataset.id;
+    let item = this.data.lawyerList[index];
+
     wx.navigateTo({
-      url: '/pages/info/info',
+      url: '/pages/info/info?item=' + JSON.stringify(item),
     })
   },
   /**
    * 获取律师列表
    */
   getLawyerList(){
+    wx.showLoading({
+      title: '加载中...',
+      mask: true
+    });
     let data = {
       pageNumber: 1,
       pageSize: 99999,
-      userLabel: '',
+      userLabel: this.data.title,
     };
+    if (this.data.title == '全部'){
+      data = {
+        pageNumber: 1,
+        pageSize: 99999,
+      };
+    }
     http.getList(data)
     .then(res => {
        console.log(res);
+       if(res.status == 9999){
+         // 查询成功
+         let list = res.list;
+         this.setData({
+           lawyerList: list
+         })
+
+         wx.hideLoading();
+       }
     })
   }
 })

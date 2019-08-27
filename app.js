@@ -44,16 +44,17 @@ App({
                         let type = res.data.user.userType;
                         wx.setStorageSync("session", res.data.token);
                         wx.setStorageSync("userType", type);
+                        wx.setStorageSync("userInfo",res.data.user);
                         wx.hideLoading()
-                        if(type == 1){
+                        // if(type == 1){
                           wx.switchTab({
                             url: '/pages/index/index'
                           })
-                        }else{
-                          wx.switchTab({
-                            url: '/pages/lawyerIndex/lawyerIndex'
-                          })
-                        }
+                        // }else{
+                        //   wx.switchTab({
+                        //     url: '/pages/lawyerIndex/lawyerIndex'
+                        //   })
+                        // }
                         
                       }
                     })
