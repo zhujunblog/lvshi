@@ -1,6 +1,7 @@
 // pages/consulting/consulting.js
 import { config } from '../../utils/config.js';
-
+import { consulting } from './module.js';
+const http = new consulting();
 Page({
 
   /**
@@ -16,7 +17,7 @@ Page({
     uploadUrl: [],
     userName: null,
     content: null,               //咨询内容
-
+    type: 1
   },
 
   /**
@@ -95,7 +96,7 @@ Page({
           let url = res.tempFilePaths[i];
           arr.push({
             status: 0,
-            url: "https://" + url
+            url: url
           })
         }
         if (this.data.imgList.length != 0) {
@@ -176,21 +177,54 @@ Page({
 
     // 判断是否需要上传图片
     let timer = null;
+    let that = this;
     if (this.data.imgList.length > 0){
       this.uploadImgHttp();
       let imgList = this.data.imgList;
       timer = setInterval(() => {
         let status = true;
+        let err = false;
+        let arr = [];
         for (let i = 0; i < imgList.length; i++){
           if (imgList[i].status == 0 )
           {
             status = false;
             break;
           }
+
+          if(imgList[i].status == 2){
+            // 失败
+            arr.push(imgList[i]);
+            err = true;
+          }
+        }
+        if(status && err){
+          // 执行完成并且有上传失败的文件
+          wx.hideLoading();
+          clearInterval(timer);
+          that.setData({
+            imgList: arr
+          })
+          wx.showModal({
+            title: '提示',
+            content: '部分图片上传失败，是否重新上传失败图片？',
+            cancelText: '直接提交',
+            confirmText: '重新上传',
+            success: res => {
+              if (res.confirm) {
+                that.submit();
+              }else{
+                // 提交数据
+                that.submitFn();
+              }
+            }
+          })
         }
         if(status){
           clearInterval(timer);
           // 提交数据
+          wx.hideLoading();
+          that.submitFn();
         }
       },300)
     }else{
@@ -198,12 +232,68 @@ Page({
       let data = {
         money: 0.1,
         adviceType: this.data.picker[this.data.index],
-        lawyerId: this.data.info.id,
+        lawyerId: this.data.lawyer.id,
         type: this.data.type,
         address: this.data.region.join(),
         content: this.data.content
       }
     }
+  },
+  /**
+   * 提交数据
+   */
+  submitFn(){
+    wx.showLoading({
+      title: '正在提交数据',
+    })
+    let data = {
+      money: 1000,
+      adviceType: this.data.picker[this.data.index],
+      lawyerId: this.data.lawyer.id,
+      type: this.data.type,
+      address: this.data.region.join(),
+      content: this.data.content,
+      image: this.data.uploadUrl.join()
+    }
+
+    http.createOrder(data)
+    .then(res => {
+      console.log(res);
+      wx.hideLoading();
+      wx.showToast({
+        title: '提交成功',
+      })
+      wx.requestPayment({
+        'timeStamp': timeStamp.toString(),
+        'nonceStr': data.nonceStr,
+        'package': data.package,
+        'signType': 'MD5',
+        'paySign': data.paySign,
+        success: function (res) {
+          let courseIdList = _that.data.courseIdList;
+          courseIdList.push(id)
+          _that.setData({
+            courseIdList: courseIdList
+          })
+          wx.setStorage({
+            key: 'courseIdList',
+            data: courseIdList
+          })
+          wx.showToast({
+            title: '支付成功，点击观看',
+            icon: 'success',
+            duration: 2000
+          })
+        },
+        fail: function (err) {
+          wx.showToast({
+            title: '支付失败，无法观看次视频',
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      });
+    })
   },
   /**
    * 检查
