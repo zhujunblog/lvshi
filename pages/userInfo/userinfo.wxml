@@ -3,42 +3,40 @@
    <view class='from'>
       <view class="cu-form-group">
         <view class="title">姓名</view>
-        <input placeholder="请输入姓名"></input>
+        <input placeholder="请输入姓名" bindinput='getrealName' value='{{realName}}'></input>
       </view>
-      <view class="cu-form-group">
+      <!-- <view class="cu-form-group">
         <view class="title">性别</view>
-        <!-- <input placeholder="请选择性别"></input> -->
         <picker bindchange="PickerChange" value="{{index}}" range="{{picker}}">
           <view class="picker">
              <text wx:if="{{index}}">{{picker[index]}}</text>
              <text class='text' wx:else>请选择性别</text>
-            <!-- {{index ? picker[index]: '请选择性别'}} -->
           </view>
         </picker>
-      </view>
-      <view class="cu-form-group">
+      </view> -->
+      <!-- <view class="cu-form-group">
         <view class="title">年龄</view>
         <input placeholder="统一标题的宽度"></input>
-      </view>
+      </view> -->
       <view class="cu-form-group">
         <view class="title">电话</view>
-        <input placeholder="统一标题的宽度"></input>
+        <input placeholder="统一标题的宽度" bindinput='gettelephone' value='{{telephone}}'></input>
       </view>
       <view class="cu-bar bg-white margin-top">
         <view class="action">
           上传头像
         </view>
-        <!-- <view class="action">
-          {{imgList.length}}/4
-        </view> -->
       </view>
       <view class="cu-form-group">
         <view class="grid col-4 grid-square flex-sub">
+          <view class="bg-img" wx:if="{{imgSrc.length > 1}}" bindtap="ViewImage" data-url="{{imgSrc}}">
+            <image src='{{imgSrc}}' mode='aspectFill'></image>
+          </view>
           <view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
             <image src='{{imgList[index]}}' mode='aspectFill'></image>
-            <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+            <!-- <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
               <text class="cuIcon-close"></text>
-            </view>
+            </view> -->
           </view>
           <view class="solids" bindtap="ChooseImage">
             <text class="cuIcon-cameraadd"></text>
@@ -49,7 +47,7 @@
 
    <view class="padding flex flex-direction">
     <!-- <button class="cu-btn bg-grey lg">玄灰</button> -->
-    <button class="cu-btn bg-blue margin-tb-sm lg" bindtap='sumbit'>提交</button>
+    <button class="cu-btn bg-blue margin-tb-sm lg" bindtap='submit'>提交</button>
   </view>
 
 </view>

@@ -1,11 +1,16 @@
-// pages/userOrder/userOrder.js
+// pages/lawyerIndex/lawyerIndex.js
+import { isLogin } from '../../utils/utils.js';
+import { order } from './module.js';
+const http = new order();
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    TabCur: 0
+    TabCur: 1,
+    list: [],
   },
 
   /**
@@ -26,51 +31,42 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getOrderList(1);
   },
   tabSelect(e) {
     this.setData({
       TabCur: e.currentTarget.dataset.id,
-      // scrollLeft: (e.currentTarget.dataset.id - 1) * 60
-    })
+    });
+    // 获取律师列表
+    this.getOrderList(e.currentTarget.dataset.id);
   },
-  jumpToconsulting() {
+  jumpToConsultingInfo(e) {
+    let orderId = e.currentTarget.dataset.orderid;
+    if (!isLogin()) {
+      return false;
+    }
     wx.navigateTo({
-      url: '/pages/consulting/consulting',
+      url: '/pages/jumpToConsultingInfo/jumpToConsultingInfo?orderId=' + orderId,
     })
   },
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  getOrderList(orderStatus) {
+    wx.showLoading({
+      title: '正在获取数据',
+    })
+    let data = {
+      pageNumber: 1,
+      pageSize: 9999,
+      orderStatus: orderStatus
+    };
+    http.getOrder(data)
+      .then(res => {
+        console.log(res);
+        if (res.status == 9999) {
+          this.setData({
+            list: res.list
+          })
+        }
+        wx.hideLoading();
+      })
   }
 })

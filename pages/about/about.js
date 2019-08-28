@@ -1,24 +1,18 @@
-// pages/info/info.js
+// pages/about/about.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    info: {},
-    userLabel: []
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // console.log();
-    let info = JSON.parse(options.item);
-    this.setData({
-      info: info,
-      userLabel: info.userLabel.split(',')
-    })
+
   },
 
   /**
@@ -34,16 +28,7 @@ Page({
   onShow: function () {
 
   },
-  jumpToconsultingPhoto(){
-    wx.navigateTo({
-      url: '/pages/consulting/consulting?lawyer=' + JSON.stringify(this.data.info) + '&type=' + 1 + '&money=' + this.data.info.photoPrice,
-    })
-  },
-  jumpToconsultingLawyer(){
-    wx.navigateTo({
-      url: '/pages/consulting/consulting?lawyer=' + JSON.stringify(this.data.info) + '&type=' + 2 + '&money=' + this.data.info.lawyerPrice,
-    })
-  },
+
   /**
    * 生命周期函数--监听页面隐藏
    */

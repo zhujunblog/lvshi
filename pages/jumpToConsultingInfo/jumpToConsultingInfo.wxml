@@ -1,19 +1,20 @@
 <!-- 咨询详情 -->
+<wxs module='filter' src='../../utils/tool.wxs'></wxs>
 <view class='jumpToConsultingInfo'>
    <view class='from margin-top'>
       <view class="cu-form-group">
         <view class="title">姓名：</view>
-        <view class='text-bold'>张先生</view>
+        <view class='text-bold'>{{orderInfo.adviceUsername}}</view>
       </view>
       
        <view class="cu-form-group">
         <view class="title">咨询类型：</view>
-        <view class='text-red text-bold'>家庭婚姻</view>
+        <view class='text-red text-bold'>{{orderInfo.adviceType}}</view>
       </view>
 
       <view class="cu-form-group">
         <view class="title">所在地：</view>
-        <view>浙江省杭州市西湖区</view>
+        <view>{{orderInfo.orderAddress}}</view>
       </view>
 
       <view class="cu-form-group margin-top" wx:if="{{!showModule}}">
@@ -21,7 +22,7 @@
       </view>
       <view class="cu-form-group" wx:if="{{!showModule}}">
         <view class='padding-xs text-bold'>
-          家庭婚姻家庭婚姻家庭婚姻家庭婚姻家庭婚姻家庭婚姻家庭婚姻家庭婚姻家庭婚姻家庭婚姻家庭婚姻家庭婚姻家庭婚姻家庭婚姻家庭婚姻家庭婚姻家庭婚姻家庭婚姻家庭婚姻家庭婚姻家庭婚姻家庭婚姻家庭婚姻家庭婚姻家庭婚姻家庭婚姻家庭婚姻家庭婚姻家庭婚姻家庭婚姻家庭婚姻家庭婚姻家庭婚姻家庭婚姻家庭婚姻
+          {{orderInfo.orderContent}}
         </view>
       </view>
       
@@ -69,8 +70,8 @@
       </view>
       <view class="cu-form-group">
         <view class="grid col-4 grid-square flex-sub">
-          <view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
-            <image src='{{imgList[index]}}' mode='aspectFill'></image>
+          <view class="bg-img" wx:for="{{filter._imagArr(orderInfo.orderImage)}}" wx:key="{{index}}" bindtap="ViewImage" data-url="https://{{item}}" data-imgList="{{filter._imagArr(orderInfo.orderImage)}}">
+            <image src='https://{{item}}' mode='aspectFill'></image>
           </view>
         </view>
       </view>
@@ -114,6 +115,6 @@
   <view class="padding flex flex-direction">
       <!-- <button class="cu-btn bg-grey lg">玄灰</button> -->
       <button class="cu-btn bg-blue margin-tb-sm lg" bindtap='jumpTolaywerAnswer'>回答咨询</button>
-      <button class="cu-btn bg-green margin-tb-sm lg">完成咨询</button>
+      <button class="cu-btn bg-green margin-tb-sm lg" bindtap='success'>完成咨询</button>
   </view>
 </view>

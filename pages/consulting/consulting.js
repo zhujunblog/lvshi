@@ -17,7 +17,8 @@ Page({
     uploadUrl: [],
     userName: null,
     content: null,               //咨询内容
-    type: 1
+    type: 1,
+    money: 0,                    // 支付金额
   },
 
   /**
@@ -27,6 +28,8 @@ Page({
     let info = JSON.parse(options.lawyer);
     this.setData({
       lawyer: info,
+      type: options.type,
+      money: options.money
     })
   },
 
@@ -173,7 +176,9 @@ Page({
    * 提交
    */
   submit(){
-    // this.isValue();
+    if(!this.isValue()){
+      return false;
+    }
 
     // 判断是否需要上传图片
     let timer = null;
@@ -215,7 +220,7 @@ Page({
                 that.submit();
               }else{
                 // 提交数据
-                that.submitFn();
+                that.submitFn(true);
               }
             }
           })
@@ -224,45 +229,46 @@ Page({
           clearInterval(timer);
           // 提交数据
           wx.hideLoading();
-          that.submitFn();
+          that.submitFn(true);
         }
       },300)
     }else{
       // 不上传
-      let data = {
-        money: 0.1,
-        adviceType: this.data.picker[this.data.index],
-        lawyerId: this.data.lawyer.id,
-        type: this.data.type,
-        address: this.data.region.join(),
-        content: this.data.content
-      }
+      this.submitFn(false)
     }
   },
   /**
    * 提交数据
    */
-  submitFn(){
+  submitFn(upload){
     wx.showLoading({
       title: '正在提交数据',
     })
     let data = {
-      money: 1000,
+      money: this.data.money*100,
       adviceType: this.data.picker[this.data.index],
       lawyerId: this.data.lawyer.id,
       type: this.data.type,
       address: this.data.region.join(),
-      content: this.data.content,
-      image: this.data.uploadUrl.join()
+      content: this.data.content
     }
-
+    if (upload){
+      data = {
+        money: this.data.money*100,
+        adviceType: this.data.picker[this.data.index],
+        lawyerId: this.data.lawyer.id,
+        type: this.data.type,
+        address: this.data.region.join(),
+        content: this.data.content,
+        image: this.data.uploadUrl.join()
+      }
+    }
     http.createOrder(data)
     .then(res => {
       console.log(res);
       wx.hideLoading();
-      wx.showToast({
-        title: '提交成功',
-      })
+      var timeStamp = res.map.timeStamp;
+      var data = res.map;
       wx.requestPayment({
         'timeStamp': timeStamp.toString(),
         'nonceStr': data.nonceStr,
@@ -270,24 +276,16 @@ Page({
         'signType': 'MD5',
         'paySign': data.paySign,
         success: function (res) {
-          let courseIdList = _that.data.courseIdList;
-          courseIdList.push(id)
-          _that.setData({
-            courseIdList: courseIdList
-          })
-          wx.setStorage({
-            key: 'courseIdList',
-            data: courseIdList
-          })
           wx.showToast({
-            title: '支付成功，点击观看',
+            title: '支付成功',
             icon: 'success',
             duration: 2000
           })
+          // 查看订单详情
         },
         fail: function (err) {
           wx.showToast({
-            title: '支付失败，无法观看次视频',
+            title: '支付失败',
             icon: 'none',
             duration: 2000
           })
@@ -330,5 +328,6 @@ Page({
       })
       return false;
     }
+    return true;
   }
 })

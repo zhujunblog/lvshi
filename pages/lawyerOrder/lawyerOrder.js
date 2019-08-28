@@ -9,7 +9,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    TabCur: 0,
+    TabCur: 1,
+    list: [],
   },
 
   /**
@@ -30,30 +31,42 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getOrderList();
+    this.getOrderList(1);
   },
   tabSelect(e) {
     this.setData({
       TabCur: e.currentTarget.dataset.id,
       // scrollLeft: (e.currentTarget.dataset.id - 1) * 60
     })
+    this.getOrderList(e.currentTarget.dataset.id);
   },
-  jumpToConsultingInfo() {
+  jumpToConsultingInfo(e) {
+    let orderId = e.currentTarget.dataset.orderid;
     if (!isLogin()) {
       return false;
     }
     wx.navigateTo({
-      url: '/pages/jumpToConsultingInfo/jumpToConsultingInfo',
+      url: '/pages/jumpToConsultingInfo/jumpToConsultingInfo?orderId=' + orderId,
     })
   },
-  getOrderList(){
+  getOrderList(orderStatus){
+    wx.showLoading({
+      title: '正在获取数据',
+    })
     let data = {
       pageNumber: 1,
-      pageSize: 9999
+      pageSize: 9999,
+      orderStatus: orderStatus
     };
     http.getOrder(data)
     .then(res => {
       console.log(res);
+      if(res.status == 9999){
+        this.setData({
+          list: res.list
+        })
+      }
+      wx.hideLoading()
     })
   }
 })

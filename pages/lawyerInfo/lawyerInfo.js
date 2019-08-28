@@ -324,6 +324,7 @@ Page({
           wx.showToast({
             title: '保存成功',
           })
+          this.updateStroge();
         })
     }else{
       this.uploadImgHttp(() => {
@@ -348,6 +349,7 @@ Page({
             wx.showToast({
               title: '保存成功',
             })
+            this.updateStroge();
           })
 
       });
@@ -358,6 +360,23 @@ Page({
 
     
   },
+  /**
+  * 更新缓存
+  */
+  updateStroge() {
+    let userInfo = wx.getStorageSync("userInfo") || null;
+    userInfo.realName = this.data.realName;
+    userInfo.telephone = this.data.telephone;
+    userInfo.headImage = this.data.imgList.length == 0 ? this.data.imgSrc : this.data.headImage;
+    userInfo.selfData = this.data.selfData;
+    userInfo.goodAt = this.data.goodAt;
+    userInfo.workExperience = this.data.workExperience;
+    userInfo.userAddress = this.data.userAddress;
+    userInfo.lawyerPrice = this.data.lawyerPrice;
+    userInfo.photoPrice = this.data.photoPrice  
+    wx.setStorageSync("userInfo", userInfo);            
+  },
+
   /**
    * 判断信息是否填写完成
    */

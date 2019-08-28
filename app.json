@@ -16,7 +16,9 @@
     "pages/jumpToConsultingInfo/jumpToConsultingInfo",
     "pages/laywerAnswer/laywerAnswer",
     "pages/certification/certification",
-    "pages/lawyerOrder/lawyerOrder"
+    "pages/lawyerOrder/lawyerOrder",
+    "pages/about/about",
+    "pages/our/our"
   ],
   "tabBar": {
     "custom": true,

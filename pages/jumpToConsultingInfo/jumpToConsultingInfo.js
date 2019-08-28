@@ -1,18 +1,25 @@
 // pages/jumpToConsultingInfo/jumpToConsultingInfo.js
+import { orderInfo} from './module.js';
+const http = new orderInfo();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+   orderId:'',
+   orderInfo: {},       //订单信息
+   orderComment: [],    //订单评论
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+     this.setData({
+       orderId: options.orderId
+     })
+    this.getOrderInfo(options.orderId)
   },
 
   /**
@@ -30,41 +37,58 @@ Page({
   },
   jumpTolaywerAnswer(){
     wx.navigateTo({
-      url: '/pages/laywerAnswer/laywerAnswer',
+      url: '/pages/laywerAnswer/laywerAnswer?orderId=' + this.data.orderId,
     })
   },
   /**
-   * 生命周期函数--监听页面隐藏
+   * 获取订单详情
    */
-  onHide: function () {
-
+  getOrderInfo(id){
+    let data = {
+      pageNumber: 1,
+      pageSize: 999,
+      orderId: id 
+    }
+    http.getOrderInfo(data)
+    .then(res => {
+      console.log(res);
+      this.setData({
+        orderComment: res.list,
+        orderInfo: res.wxOrder
+      })
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
+  ViewImage(e) {
+    wx.previewImage({
+      urls: e.currentTarget.dataset.imglist,
+      current: e.currentTarget.dataset.url
+    });
   },
+  success(){
+    let that = this;
+    wx.showModal({
+      title: '提示',
+      content: '确定完成订单？',
+      cancelText: '取消',
+      confirmText: '确定',
+      success: res => {
+        if (res.confirm) {
+          let data = {
+            orderId: that.data.orderId
+          }
+          http.checkOrder(data)
+            .then(res => {
+                if(res.status == 9999){
+                  wx.showToast({
+                    title: '操作成功',
+                  })
+                  // 返回订单列表
+                }
+            })
+        }
+      }
+    })
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+    
   }
 })

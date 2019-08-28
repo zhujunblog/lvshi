@@ -1,78 +1,35 @@
-<view class='userOrder'>
-<view style='position:fixed;width:100%;background-color:#fff;z-index:99;top:0;left:0;'>
-  <view class="cu-bar bg-white  solid-bottom">
-    <view class="action">
-      <text class="cuIcon-title text-orange"></text> 我的订单
-    </view>
-  </view>
-  <scroll-view scroll-x class="bg-white nav">
-    <view class="flex text-center">
-      <view class="cu-item flex-sub {{0==TabCur?'text-orange cur':''}}"  bindtap="tabSelect" data-id="{{0}}">
-       未完成
+<wxs module='filter' src='../../utils/tool.wxs'></wxs>
+<view class='laywerIndex'>
+  <view style='position:fixed;width:100%;background-color:#fff;z-index:99;top:0;left:0;'>
+    <!-- <view class="cu-bar bg-white  solid-bottom">
+      <view class="action">
+        <text class="cuIcon-title text-orange"></text> 我的订单
       </view>
-      <view class="cu-item flex-sub {{1==TabCur?'text-orange cur':''}}"  bindtap="tabSelect" data-id="{{1}}">
-       已完成
+    </view> -->
+    <scroll-view scroll-x class="bg-white nav">
+      <view class="flex text-center justify-around">
+        <view class="cu-item  {{1==TabCur?'text-blue cur':''}}"  bindtap="tabSelect" data-id="{{1}}">
+        未完成
+        </view>
+        <view class="cu-item  {{2==TabCur?'text-blue cur':''}}"  bindtap="tabSelect" data-id="{{2}}">
+        已完成
+        </view>
       </view>
-    </view>
-  </scroll-view>
-</view>
-  
-
-  <view class='list' style='margin-top: 190rpx;' wx:if="{{0==TabCur}}">
-    
-    <view class='from padding' wx:for="{{5}}" bindtap='jumpToconsulting'>
-      <view class="cu-form-group">
-        <view class="title">律师姓名:</view>
-        <view class='text'>王二</view>
-      </view>
-      <view class="cu-form-group">
-        <view class="title">咨询类型:</view>
-        <view class='text'>财产纠纷</view>
-      </view>
-      <view class="cu-form-group">
-        <view class="title">咨询方式:</view>
-        <view class='text'>图文咨询</view>
-      </view>
-      <view class="cu-form-group">
-        <view class="title">咨询时间:</view>
-        <view class='text'>2019-08-21</view>
-      </view>
-      <view class="cu-form-group">
-        <view class="title">订单状态:</view>
-        <view class='text text-red'>未完成</view>
-      </view>
-      <view class=" flex flex-direction">
-        <button class="cu-btn bg-blue  lg">点击确认完成订单</button>
-      </view>
-    </view>
+    </scroll-view>
   </view>
 
-  <view class='list' style='margin-top: 190rpx;' wx:if="{{1==TabCur}}">
-    
-    <view class='from padding' wx:for="{{5}}" bindtap='jumpToconsulting'>
-      <view class="cu-form-group">
-        <view class="title">律师姓名:</view>
-        <view class='text'>王二</view>
-      </view>
-      <view class="cu-form-group">
-        <view class="title">咨询类型:</view>
-        <view class='text'>财产纠纷</view>
-      </view>
-      <view class="cu-form-group">
-        <view class="title">咨询方式:</view>
-        <view class='text'>图文咨询</view>
-      </view>
-      <view class="cu-form-group">
-        <view class="title">咨询时间:</view>
-        <view class='text'>2019-08-21</view>
-      </view>
-      <view class="cu-form-group">
-        <view class="title">订单状态:</view>
-        <view class='text text-green'>已完成</view>
-      </view>
-      <!-- <view class=" flex flex-direction">
-        <button class="cu-btn bg-blue  lg">点击确认完成订单</button>
-      </view> -->
-    </view>
+  <view class='list padding'>
+     <view class="padding bg-white flex justify-center" wx:if="{{list.length == 0}}">暂无订单</view>
+     <view class='item padding-xl radius margin-bottom bg-white' wx:for="{{list}}" data-orderId="{{item.id}}" bindtap='jumpToConsultingInfo'>
+       <view class='flex justify-between  align-center'>
+         <view class='text-red' wx:if="{{item.orderType == 2}}" ><text class='cuIcon-title text-red'></text>电话咨询</view>
+         <view class='text-blue' wx:if="{{item.orderType == 1}}" ><text class='cuIcon-title text-blue'></text> 图文咨询</view>
+         <view class='time text-gray'>{{filter._filterTimestamp(item.createDate)}}</view>
+       </view>
+       <view class='flex justify-between align-center margin-top'>
+         <view class='text-black text-xl text-bold'>{{item.adviceType}}</view>
+         <view class='text-bold'>客户：{{item.adviceUsername}}</view>
+       </view>
+     </view>
   </view>
 </view>
