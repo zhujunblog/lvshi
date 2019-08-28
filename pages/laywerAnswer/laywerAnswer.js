@@ -110,7 +110,7 @@ Page({
         success(res) {
           const data = JSON.parse(res.data)
           let url = _that.data.uploadUrl;
-          url.push(data.url);
+          url.push('https://' + data.url);
           _that.data.imgList[i].status = 1;
           _that.setData({
             uploadUrl: url

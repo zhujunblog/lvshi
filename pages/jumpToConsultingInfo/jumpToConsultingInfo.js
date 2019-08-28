@@ -59,8 +59,10 @@ Page({
     })
   },
   ViewImage(e) {
+    console.log(e.currentTarget.dataset.imglist);
+    let arr = e.currentTarget.dataset.imglist.split(',');
     wx.previewImage({
-      urls: e.currentTarget.dataset.imglist,
+      urls: arr,
       current: e.currentTarget.dataset.url
     });
   },

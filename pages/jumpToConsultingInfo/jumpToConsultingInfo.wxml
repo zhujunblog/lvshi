@@ -70,8 +70,8 @@
       </view>
       <view class="cu-form-group">
         <view class="grid col-4 grid-square flex-sub">
-          <view class="bg-img" wx:for="{{filter._imagArr(orderInfo.orderImage)}}" wx:key="{{index}}" bindtap="ViewImage" data-url="https://{{item}}" data-imgList="{{filter._imagArr(orderInfo.orderImage)}}">
-            <image src='https://{{item}}' mode='aspectFill'></image>
+          <view class="bg-img" wx:for="{{filter._imagArr(orderInfo.orderImage)}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{item}}" data-imgList="{{orderInfo.orderImage}}">
+            <image src='{{item}}' mode='aspectFill'></image>
           </view>
         </view>
       </view>
@@ -79,36 +79,22 @@
       <!-- 咨询记录 -->
       <view class="cu-timeline margin-top">
         <view class="cu-time text-bold">咨询记录</view>
-        <view class="cu-item text-blue cuIcon-evaluate_fill">
-          <view class="content bg-blue shadow-blur">
-            最近一次用户回答
+
+        <view class="cu-item text-blue cuIcon-evaluate_fill" wx:for="{{orderComment}}">
+          <view class="content  shadow-blur">
+            <view class="cu-capsule radius">
+              <view class="cu-tag bg-cyan">{{item.userType == 1 ? '用户':'律师'}}</view>
+              <view class="cu-tag line-cyan">{{item.userName}}</view>
+            </view>
+            <view class="margin-top">{{item.commentContent}}</view>
+            <view class="grid col-4 grid-square flex-sub">
+              <view class="bg-img" wx:for="{{filter._imagArr(item.answerImage)}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{item}}" data-imgList="{{item.answerImage}}">
+                <image src='{{item}}' mode='aspectFill'></image>
+              </view>
+            </view>
           </view>
         </view>
-        <view class="cu-item text-red cuIcon-evaluate_fill">
-          <view class="content bg-red shadow-blur">
-            最近一次律师回答
-          </view>
-        </view>
-        <view class="cu-item text-blue cuIcon-evaluate_fill">
-          <view class="content bg-blue shadow-blur">
-            最近一次用户回答
-          </view>
-        </view>
-        <view class="cu-item text-red cuIcon-evaluate_fill">
-          <view class="content bg-red shadow-blur">
-            最近一次律师回答
-          </view>
-        </view>
-        <view class="cu-item text-blue cuIcon-evaluate_fill">
-          <view class="content bg-blue shadow-blur">
-            最近一次用户回答
-          </view>
-        </view>
-        <view class="cu-item text-red cuIcon-evaluate_fill">
-          <view class="content bg-red shadow-blur">
-            最近一次律师回答
-          </view>
-        </view>
+
       </view>
  </view>
 

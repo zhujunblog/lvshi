@@ -1,4 +1,6 @@
 // pages/info/info.js
+import { info } from './module.js';
+const http = new info();
 Page({
 
   /**
@@ -42,6 +44,16 @@ Page({
   jumpToconsultingLawyer(){
     wx.navigateTo({
       url: '/pages/consulting/consulting?lawyer=' + JSON.stringify(this.data.info) + '&type=' + 2 + '&money=' + this.data.info.lawyerPrice,
+    })
+  },
+  focusLawyer(){
+    let data = {
+      id: this.data.info.id,
+      type: 1
+    }
+    http.focusLawyer(data)
+    .then(res => {
+
     })
   },
   /**

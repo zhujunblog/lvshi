@@ -3,7 +3,7 @@
     <view class='left'>
       <view class='nameTool'>
          <text class='name'>{{info.realName}}</text>
-         <button class="cu-btn round bg-blue sm">关注</button>
+         <button class="cu-btn round bg-blue sm" bindtap='focusLawyer'>关注</button>
       </view>
       <view>
         <view>

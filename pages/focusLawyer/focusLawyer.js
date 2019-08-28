@@ -1,4 +1,6 @@
 // pages/focusLawyer/focusLawyer.js
+import {info} from './module.js';
+const http = new info();
 Page({
 
   /**
@@ -26,11 +28,21 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getFocusLawyerList();
   },
   jumpToinfo() {
     wx.navigateTo({
       url: '/pages/info/info',
+    })
+  },
+  getFocusLawyerList(){
+    let data ={
+      pageNumber:1,
+       pageSize: 999
+    };
+    http.getFocusLawyerList(data)
+    .then(res => {
+
     })
   },
   /**
