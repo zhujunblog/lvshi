@@ -40,7 +40,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 12,
+			"current": 13,
 			"list": [
 				{
 					"id": -1,
@@ -130,6 +130,13 @@
 					"id": -1,
 					"name": "laywerAnswer",
 					"pathName": "pages/laywerAnswer/laywerAnswer",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "userOrderInfo",
+					"pathName": "pages/userOrderInfo/userOrderInfo",
 					"scene": null
 				}
 			]

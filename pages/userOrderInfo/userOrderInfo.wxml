@@ -1,0 +1,98 @@
+<!--pages/userOrderInfo/userOrderInfo.wxml-->
+<wxs module='filter' src='../../utils/tool.wxs'></wxs>
+<view class='jumpToConsultingInfo'>
+   <view class='from margin-top'>
+      <view class="cu-form-group">
+        <view class="title">姓名：</view>
+        <view class='text-bold'>{{orderInfo.adviceUsername}}</view>
+      </view>
+      
+       <view class="cu-form-group">
+        <view class="title">咨询类型：</view>
+        <view class='text-red text-bold'>{{orderInfo.adviceType}}</view>
+      </view>
+
+      <view class="cu-form-group" >
+        <view class="title">咨询方式：</view>
+        <view class='text-blue text-bold'>{{orderInfo.orderType == 1 ? "图文咨询":"电话咨询"}}</view>
+      </view>
+
+      <view class="cu-form-group">
+        <view class="title">用户电话：</view>
+        <view class='text-bold'>{{orderInfo.advicePhone}}</view>
+      </view>
+
+      <view class="cu-form-group">
+        <view class="title">所在地：</view>
+        <view>{{orderInfo.orderAddress}}</view>
+      </view>
+
+      <view class="cu-form-group margin-top" wx:if="{{!showModule}}">
+        <view class="title">问题描述</view>
+      </view>
+      <view class="cu-form-group" wx:if="{{!showModule}}">
+        <view class='padding-xs text-bold'>
+          {{orderInfo.orderContent}}
+        </view>
+      </view>
+      
+      <!-- 模板开始 -->
+      <view class="cu-form-group margin-top" wx:if="{{showModule}}">
+        <view class="title">问题描述</view>
+       
+      </view>
+      <view class="cu-form-group" wx:if="{{showModule}}">
+        <textarea maxlength="-1"  placeholder="请输入问题描述"></textarea>
+      </view>
+
+      <view class="cu-form-group margin-top" wx:if="{{showModule}}">
+        <view class="title">问题描述</view>
+       
+      </view>
+      <view class="cu-form-group" wx:if="{{showModule}}">
+        <textarea maxlength="-1"  placeholder="请输入问题描述"></textarea>
+      </view>
+
+      <view class="cu-form-group margin-top" wx:if="{{showModule}}">
+        <view class="title">问题描述</view>
+       
+      </view>
+      <view class="cu-form-group" wx:if="{{showModule}}">
+        <textarea maxlength="-1"  placeholder="请输入问题描述"></textarea>
+      </view>
+
+      <view class="cu-form-group margin-top" wx:if="{{showModule}}">
+        <view class="title">问题描述</view>
+        
+      </view>
+      <view class="cu-form-group" wx:if="{{showModule}}">
+        <textarea maxlength="-1"  placeholder="请输入问题描述"></textarea>
+      </view>
+      <!-- 模板结束 -->
+
+      <view class="cu-bar bg-white margin-top">
+        <view class="action">
+          图片描述
+        </view>
+        <!-- <view class="action">
+          {{imgList.length}}/4
+        </view> -->
+      </view>
+      <view class="cu-form-group">
+        <view class="grid col-4 grid-square flex-sub">
+          <view class="bg-img" wx:for="{{filter._imagArr(orderInfo.orderImage)}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{item}}" data-imgList="{{orderInfo.orderImage}}">
+            <image src='{{item}}' mode='aspectFill'></image>
+          </view>
+        </view>
+      </view>
+
+ </view>
+
+  <view class="padding flex flex-direction" >
+      <button class="cu-btn bg-blue margin-tb-sm lg" bindtap='jumpToUserIndex'>跳转至首页</button>
+      
+      <button class="cu-btn bg-green margin-tb-sm lg" bindtap='jumpToOrderList' >跳转至我的页面</button>
+  
+  </view>
+
+</view>

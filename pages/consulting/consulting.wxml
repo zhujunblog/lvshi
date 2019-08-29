@@ -13,11 +13,16 @@
       </view>
 </view>
 <view class='from margin-top'>
-      <view class="cu-form-group">
+      <view class="cu-form-group justify-start">
         <view class="title">姓名：</view>
-        <input placeholder="姓名" bindinput='getUserName' ></input>
+        <view>{{userName}}</view>
       </view>
-      
+
+      <view class="cu-form-group justify-start">
+        <view class="title">电话：</view>
+        <view>{{phone}}</view>
+      </view>
+
        <view class="cu-form-group">
         <view class="title">咨询类型：</view>
         <!-- <input placeholder="请选择性别"></input> -->

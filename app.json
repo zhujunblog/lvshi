@@ -19,7 +19,8 @@
     "pages/lawyerOrder/lawyerOrder",
     "pages/about/about",
     "pages/our/our",
-    "pages/userIndex/userIndex"
+    "pages/userIndex/userIndex",
+    "pages/userOrderInfo/userOrderInfo"
   ],
   "window": {
     "backgroundTextStyle": "light",

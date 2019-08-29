@@ -11,10 +11,10 @@ Component({
     list: [],
   },
   created(){
-    // this.setData({
-    //   TabCur: 1,
-    // })
-    // this.getOrderList(1);
+    this.setData({
+      TabCur: 1,
+    })
+    this.getOrderList(1);
   },
   pageLifetimes: {
     show: function () {

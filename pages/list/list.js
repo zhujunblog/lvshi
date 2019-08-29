@@ -58,10 +58,10 @@ Component({
     load: true
   },
   created(){
-    // this.setData({
-    //   listCur: this.data.list[0]
-    // });
-    // this.getLawyerList();
+    this.setData({
+      listCur: this.data.list[0]
+    });
+    this.getLawyerList();
   },
   pageLifetimes: {
     show: function () {

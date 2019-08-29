@@ -25,6 +25,10 @@ Page({
   onLoad: function (options) {
     let type = wx.getStorageSync("type") == 1 ? true : false;  // true 用户  false 律师
     let PageCur = type ? 'userIndex' :'lawyerIndex';
+
+    if(options.type){
+      PageCur = options.type;
+    }
     this.setData({
       type: type,
       PageCur: PageCur

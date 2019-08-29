@@ -16,6 +16,7 @@ Page({
     imgList: [],
     uploadUrl: [],
     userName: null,
+    phone: null,
     content: null,               //咨询内容
     type: 1,
     money: 0,                    // 支付金额
@@ -26,10 +27,13 @@ Page({
    */
   onLoad: function (options) {
     let info = JSON.parse(options.lawyer);
+    let userInfo = wx.getStorageSync("userInfo") || null;
     this.setData({
       lawyer: info,
       type: options.type,
-      money: options.money
+      money: options.money,
+      userName: userInfo.realName,
+      phone: userInfo.telephone
     })
   },
 
@@ -241,8 +245,11 @@ Page({
    * 提交数据
    */
   submitFn(upload){
+
+    let that = this;
     wx.showLoading({
       title: '正在提交数据',
+      mask: true
     })
     let data = {
       money: this.data.money*100,
@@ -282,6 +289,9 @@ Page({
             duration: 2000
           })
           // 查看订单详情
+          setTimeout(() =>{
+            that.jumpToUserOrder();
+          })
         },
         fail: function (err) {
           wx.showToast({
@@ -291,6 +301,26 @@ Page({
           })
         }
       });
+    })
+  },
+  /**
+   * 跳转至订单详情页面
+   */
+  jumpToUserOrder(){
+    let data = {
+      advicePhone: this.data.phone,
+      adviceUsername: this.data.userName,
+      lawyerUsername: this.data.lawyer.realName,
+      orderMoney: this.data.money * 100,
+      adviceType: this.data.picker[this.data.index],
+      lawyerId: this.data.lawyer.id,
+      orderType: this.data.type,
+      orderAddress: this.data.region.join(),
+      orderContent: this.data.content,
+      orderImage: this.data.uploadUrl.join()
+    }
+    wx.reLaunch({
+      url: '/pages/userOrderInfo/userOrderInfo?orderInfo=' + JSON.stringify(data),
     })
   },
   /**
