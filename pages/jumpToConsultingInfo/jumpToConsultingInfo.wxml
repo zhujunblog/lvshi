@@ -12,6 +12,16 @@
         <view class='text-red text-bold'>{{orderInfo.adviceType}}</view>
       </view>
 
+      <view class="cu-form-group" >
+        <view class="title">咨询方式：</view>
+        <view class='text-blue text-bold'>{{orderInfo.orderType == 1 ? "图文咨询":"电话咨询"}}</view>
+      </view>
+
+      <view class="cu-form-group" bindtap='callUser'  wx:if="{{orderInfo.orderStatus != 4 && wxUser.userType != 1}}">
+        <view class="title">用户电话：</view>
+        <view class='text-bold'>{{orderInfo.advicePhone}}</view>
+      </view>
+
       <view class="cu-form-group">
         <view class="title">所在地：</view>
         <view>{{orderInfo.orderAddress}}</view>
@@ -77,19 +87,23 @@
       </view>
     
       <!-- 咨询记录 -->
-      <view class="cu-timeline margin-top">
+      <view class="cu-timeline margin-top padding-bottom">
         <view class="cu-time text-bold">咨询记录</view>
 
-        <view class="cu-item text-blue cuIcon-evaluate_fill" wx:for="{{orderComment}}">
-          <view class="content  shadow-blur">
-            <view class="cu-capsule radius">
-              <view class="cu-tag bg-cyan">{{item.userType == 1 ? '用户':'律师'}}</view>
-              <view class="cu-tag line-cyan">{{item.userName}}</view>
+        <view class="cu-item text-{{item.userType == 1 ? 'green':'blue'}} cuIcon-noticefill" wx:for="{{orderComment}}">
+          <view class="content bg-grey shadow-blur light">
+            <view class='flex justify-between'>
+              <view class="cu-capsule radius">
+                <view class="cu-tag bg-{{item.userType == 1 ? 'green':'blue'}}">{{item.userType == 1 ? '用户':'律师'}}</view>
+                <view class="cu-tag line-{{item.userType == 1 ? 'green':'blue'}} ">{{item.userName}}</view>
+              </view>
+              <view >{{filter._filterTimestamp(item.createDate)}}</view>
             </view>
+            
             <view class="margin-top">{{item.commentContent}}</view>
-            <view class="grid col-4 grid-square flex-sub">
-              <view class="bg-img" wx:for="{{filter._imagArr(item.answerImage)}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{item}}" data-imgList="{{item.answerImage}}">
-                <image src='{{item}}' mode='aspectFill'></image>
+            <view class="grid col-4 grid-square flex-sub padding-top">
+              <view class="bg-img" wx:for="{{filter._imagArr(item.answerImage)}}" wx:for-item="itemName" wx:key="{{index}}" bindtap="ViewImage" data-url="{{itemName}}"  data-imglist='{{item.answerImage}}' >
+                <image src='{{itemName}}' mode='aspectFill'></image>
               </view>
             </view>
           </view>
@@ -98,9 +112,12 @@
       </view>
  </view>
 
-  <view class="padding flex flex-direction">
-      <!-- <button class="cu-btn bg-grey lg">玄灰</button> -->
+  <view class="padding flex flex-direction"  wx:if="{{orderInfo.orderStatus != 4}}" >
       <button class="cu-btn bg-blue margin-tb-sm lg" bindtap='jumpTolaywerAnswer'>回答咨询</button>
-      <button class="cu-btn bg-green margin-tb-sm lg" bindtap='success'>完成咨询</button>
+      <button class="cu-btn bg-grey margin-tb-sm lg"  wx:if="{{orderInfo.orderStatus == 3 && wxUser.userType == 3}}" >等待用户确认...</button>
+      <button class="cu-btn bg-grey margin-tb-sm lg"  wx:if="{{orderInfo.orderStatus == 2 && wxUser.userType == 1}}" >等待律师确认...</button>
+      <button class="cu-btn bg-green margin-tb-sm lg" bindtap='success' wx:if="{{orderInfo.orderStatus == 1}}" >完成咨询</button>
+  
   </view>
+
 </view>

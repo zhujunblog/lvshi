@@ -12,7 +12,10 @@ class info extends HTTP {
   focusLawyer(data) {
     return this.request('/wxuser/focusLawyer', data, "POST");
   }
-
+  
+  getInfo(data){
+    return this.request('/wxuser/getLawyerInfo',data,'POST');
+  }
 
 }
 

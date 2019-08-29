@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    list: []
   },
 
   /**
@@ -30,9 +30,11 @@ Page({
   onShow: function () {
     this.getFocusLawyerList();
   },
-  jumpToinfo() {
+  jumpToinfo(e) {
+    let index = e.currentTarget.dataset.id;
+    let item = this.data.list[index];
     wx.navigateTo({
-      url: '/pages/info/info',
+      url: '/pages/info/info?item=' + JSON.stringify(item),
     })
   },
   getFocusLawyerList(){
@@ -42,8 +44,48 @@ Page({
     };
     http.getFocusLawyerList(data)
     .then(res => {
-
+        this.setData({
+          list: res.lawyerList
+        })
     })
+  },
+  cancelFocus(e){
+    let id = e.currentTarget.dataset.id;
+    let data = {
+      id: id,
+      type: 2
+    }
+    let that = this;
+
+    wx.showModal({
+      title: '提示',
+      content: '确定要取消关注此律师？',
+      cancelText: '取消',
+      confirmText: '确定',
+      success: res => {
+
+        if (res.confirm) {
+          http.focusLawyer(data)
+          .then(res => {
+            if(res.status == 9999){
+              wx.showToast({
+                title: '取消成功',
+              })
+              that.getFocusLawyerList();
+            }else{
+              wx.showToast({
+                title: '取消失败',
+                icon: 'none'
+              })
+            }
+          })
+        }
+      }
+    })
+
+    
+
+
   },
   /**
    * 生命周期函数--监听页面隐藏

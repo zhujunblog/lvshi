@@ -1,7 +1,10 @@
 import {list} from './module.js';
 const app = getApp();
 const http = new list();
-Page({
+Component({
+  options: {
+    addGlobalClass: true,
+  },
   data: {
     TabCur: 0,
     MainCur: 0,
@@ -16,7 +19,7 @@ Page({
         name: '房屋买卖'
       },
       {
-        id:2,
+        id: 2,
         name: '房屋租赁'
       },
       {
@@ -54,106 +57,128 @@ Page({
     title: '全部',
     load: true
   },
-  onShow(){
-    if (typeof this.getTabBar === 'function' &&
-      this.getTabBar()) {
-      this.getTabBar().setData({
-        selected: 1
-      })
-    };
-
-    this.getLawyerList();
+  created(){
+    // this.setData({
+    //   listCur: this.data.list[0]
+    // });
+    // this.getLawyerList();
   },
-  onLoad() {
-   
-
-    this.setData({
-      listCur: this.data.list[0]
-    })
-  },
-  onReady() {
-    
-  },
-  tabSelect(e) {
-    this.setData({
-      TabCur: e.currentTarget.dataset.id,
-      title: this.data.list[e.currentTarget.dataset.id].name
-      // MainCur: e.currentTarget.dataset.id,
-      // VerticalNavTop: (e.currentTarget.dataset.id - 1) * 50
-    });
-    this.getLawyerList();
-  },
-  VerticalMain(e) {
-    let that = this;
-    let list = this.data.list;
-    let tabHeight = 0;
-    if (this.data.load) {
-      for (let i = 0; i < list.length; i++) {
-        let view = wx.createSelectorQuery().select("#main-" + list[i].id);
-        view.fields({
-          size: true
-        }, data => {
-          list[i].top = tabHeight;
-          tabHeight = tabHeight + data.height;
-          list[i].bottom = tabHeight;
-        }).exec();
-      }
-      that.setData({
-        load: false,
-        list: list
-      })
+  pageLifetimes: {
+    show: function () {
+      // 页面被展示
+      this.setData({
+        listCur: this.data.list[0]
+      });
+      this.getLawyerList();
+    },
+    hide: function () {
+      // 页面被隐藏
+    },
+    resize: function (size) {
+      // 页面尺寸变化
     }
-    let scrollTop = e.detail.scrollTop + 20;
-    for (let i = 0; i < list.length; i++) {
-      if (scrollTop > list[i].top && scrollTop < list[i].bottom) {
+  },
+  methods: {
+    tabSelect(e) {
+      this.setData({
+        TabCur: e.currentTarget.dataset.id,
+        title: this.data.list[e.currentTarget.dataset.id].name
+        // MainCur: e.currentTarget.dataset.id,
+        // VerticalNavTop: (e.currentTarget.dataset.id - 1) * 50
+      });
+      this.getLawyerList();
+    },
+    VerticalMain(e) {
+      let that = this;
+      let list = this.data.list;
+      let tabHeight = 0;
+      if (this.data.load) {
+        for (let i = 0; i < list.length; i++) {
+          let view = wx.createSelectorQuery().select("#main-" + list[i].id);
+          view.fields({
+            size: true
+          }, data => {
+            list[i].top = tabHeight;
+            tabHeight = tabHeight + data.height;
+            list[i].bottom = tabHeight;
+          }).exec();
+        }
         that.setData({
-          VerticalNavTop: (list[i].id - 1) * 50,
-          TabCur: list[i].id
+          load: false,
+          list: list
         })
-        return false
       }
-    }
-  },
-  jumpToinfo(e){
-    console.log(e);
-    let index = e.currentTarget.dataset.id;
-    let item = this.data.lawyerList[index];
+      let scrollTop = e.detail.scrollTop + 20;
+      for (let i = 0; i < list.length; i++) {
+        if (scrollTop > list[i].top && scrollTop < list[i].bottom) {
+          that.setData({
+            VerticalNavTop: (list[i].id - 1) * 50,
+            TabCur: list[i].id
+          })
+          return false
+        }
+      }
+    },
+    jumpToinfo(e) {
+      console.log(e);
+      let index = e.currentTarget.dataset.id;
+      let item = this.data.lawyerList[index];
 
-    wx.navigateTo({
-      url: '/pages/info/info?item=' + JSON.stringify(item),
-    })
-  },
-  /**
-   * 获取律师列表
-   */
-  getLawyerList(){
-    wx.showLoading({
-      title: '加载中...',
-      mask: true
-    });
-    let data = {
-      pageNumber: 1,
-      pageSize: 99999,
-      userLabel: this.data.title,
-    };
-    if (this.data.title == '全部'){
-      data = {
+      wx.navigateTo({
+        url: '/pages/info/info?item=' + JSON.stringify(item),
+      })
+    },
+    /**
+     * 获取律师列表
+     */
+    getLawyerList() {
+      wx.showLoading({
+        title: '加载中...',
+        mask: true
+      });
+      let data = {
         pageNumber: 1,
         pageSize: 99999,
+        userLabel: this.data.title,
       };
-    }
-    http.getList(data)
-    .then(res => {
-       console.log(res);
-       if(res.status == 9999){
-         // 查询成功
-         let list = res.list;
-         this.setData({
-           lawyerList: list
-         })
+      if (this.data.title == '全部') {
+        data = {
+          pageNumber: 1,
+          pageSize: 99999,
+        };
+      }
+      // 判断是否登录
+      let token = wx.getStorageSync("session") || null;
+      if (token) {
+        http.getList(data)
+          .then(res => {
+            console.log(res);
+            if (res.status == 9999) {
+              // 查询成功
+              let list = res.list;
+              this.setData({
+                lawyerList: list
+              })
 
-         wx.hideLoading();
-       }
-    })
+              wx.hideLoading();
+            }
+          })
+      } else {
+        http.getUserList(data)
+          .then(res => {
+            console.log(res);
+            if (res.status == 9999) {
+              // 查询成功
+              let list = res.list;
+              this.setData({
+                lawyerList: list
+              })
+
+              wx.hideLoading();
+            }
+          })
+      }
+
+    }
   }
-})
+});

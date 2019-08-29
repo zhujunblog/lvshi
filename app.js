@@ -46,10 +46,13 @@ App({
                         wx.setStorageSync("userType", type);
                         wx.setStorageSync("userInfo",res.data.user);
                         wx.hideLoading()
+                        wx.reLaunch({
+                          url: '/pages/index/index'
+                        });
                         // if(type == 1){
-                          wx.switchTab({
-                            url: '/pages/index/index'
-                          })
+                        //   wx.switchTab({
+                        //     url: '/pages/index/index'
+                        //   })
                         // }else{
                         //   wx.switchTab({
                         //     url: '/pages/lawyerIndex/lawyerIndex'

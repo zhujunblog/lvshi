@@ -8,6 +8,7 @@ Page({
    */
   data: {
    orderId:'',
+    wxUser: {},         //当前用户信息
    orderInfo: {},       //订单信息
    orderComment: [],    //订单评论
   },
@@ -19,7 +20,7 @@ Page({
      this.setData({
        orderId: options.orderId
      })
-    this.getOrderInfo(options.orderId)
+    // this.getOrderInfo(options.orderId)
   },
 
   /**
@@ -33,11 +34,20 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getOrderInfo(this.data.orderId);
   },
   jumpTolaywerAnswer(){
     wx.navigateTo({
       url: '/pages/laywerAnswer/laywerAnswer?orderId=' + this.data.orderId,
+    })
+  },
+  /**
+   * 拨打电话
+   */
+  callUser(){
+    console.log(55)
+    wx.makePhoneCall({
+      phoneNumber: this.data.orderInfo.advicePhone 
     })
   },
   /**
@@ -53,13 +63,14 @@ Page({
     .then(res => {
       console.log(res);
       this.setData({
-        orderComment: res.list,
-        orderInfo: res.wxOrder
+        orderComment: res.list.reverse(),
+        orderInfo: res.wxOrder,
+        wxUser: res.wxUser
       })
     })
   },
   ViewImage(e) {
-    console.log(e.currentTarget.dataset.imglist);
+    console.log(e);
     let arr = e.currentTarget.dataset.imglist.split(',');
     wx.previewImage({
       urls: arr,
@@ -85,6 +96,10 @@ Page({
                     title: '操作成功',
                   })
                   // 返回订单列表
+                  setTimeout(()=>{
+                    wx.navigateBack()
+                  },1000)
+                  
                 }
             })
         }

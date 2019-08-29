@@ -10,7 +10,7 @@ function _filterTimestamp(value) {
   // timestamp = getDate(fmt2).getTime();
 
   // return fmt2;
-  var time = getDate(fmt2);
+  var time = getDate(value);
   var year = time.getFullYear();
   var month = time.getMonth() + 1;
   var date = time.getDate();

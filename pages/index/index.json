@@ -1,5 +1,9 @@
 {
   "usingComponents": {
-    "van-button": "/miniprogram_npm/vant-weapp/button/index"
+    "userIndex": "/pages/userIndex/userIndex",
+    "list":"/pages/list/list",
+    "my": "/pages/my/my",
+    "lawyerIndex": "/pages/lawyerIndex/lawyerIndex",
+    "lawyerMy": "/pages/lawyerMy/lawyerMy"
   }
 }

@@ -9,17 +9,26 @@ Page({
    * 页面的初始数据
    */
   data: {
-    elements: [
-      { title: '问律师', name: '咨询已关注的律师', color: 'mauve', icon: 'vipcard' },
-      { title: '看科普', name: '阅读科普文章', color: 'mauve', icon: 'formfill' }
-    ],
+    PageCur: '',
+    type: true,         // true 用户  false 律师
+  },
+  
+  NavChange(e) {
+    this.setData({
+      PageCur: e.currentTarget.dataset.cur
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let type = wx.getStorageSync("type") == 1 ? true : false;  // true 用户  false 律师
+    let PageCur = type ? 'userIndex' :'lawyerIndex';
+    this.setData({
+      type: type,
+      PageCur: PageCur
+    })
   },
 
   /**
@@ -33,32 +42,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    if (typeof this.getTabBar === 'function' &&
-      this.getTabBar()) {
-      this.getTabBar().setData({
-        selected: 0
-      })
-    }
-  },
-  jumpToList(){
-    // console.log(isLogin);
-    wx.switchTab({
-      url: '/pages/list/list',
-    })
-
-    // if(isLogin()){
-      
-    // }else{
-
-    // }
-  },
-  jumpTofocusLawyer() {
-    if (!isLogin()) {
-      return false;
-    }
-    wx.navigateTo({
-      url: '/pages/focusLawyer/focusLawyer',
-    })
+    // let type = wx.getStorageSync("type") == 1 ? true : false;  // true 用户  false 律师
+    // let PageCur = type ? 'userIndex' : 'lawyerIndex';
+    // this.setData({
+    //   type: type,
+    //   PageCur: PageCur
+    // })
   },
   onShareAppMessage: function () {
 

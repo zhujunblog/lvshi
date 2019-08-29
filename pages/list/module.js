@@ -12,7 +12,13 @@ class list extends HTTP {
   getList(data) {
     return this.request('/wxuser/getLawyerList', data, "POST");
   }
-
+  
+  /**
+   * 没有登录获取律师列表
+   */
+  getUserList(data){
+    return this.request('/user/getLawyerList', data, "POST");
+  }
   
 }
 

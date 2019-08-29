@@ -48,14 +48,20 @@ Page({
   jumpToLawyer(){
     // 律师界面
     wx.setStorageSync("type", 2);
-    wx.switchTab({
-      url: '/pages/lawyerIndex/lawyerIndex'
+    // wx.switchTab({
+    //   url: '/pages/lawyerIndex/lawyerIndex'
+    // })
+    wx.reLaunch({
+      url: '/pages/index/index'
     })
   },
   jumpToUser(){
     // 用户界面
     wx.setStorageSync("type", 1);
-    wx.switchTab({
+    // wx.switchTab({
+    //   url: '/pages/index/index'
+    // })
+    wx.reLaunch({
       url: '/pages/index/index'
     })
   }

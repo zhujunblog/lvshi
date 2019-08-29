@@ -3392,6 +3392,11 @@ scroll-view.cu-steps .cu-item {
 	border-color: var(--blue);
 }
 
+.line-blueLight::after,
+.lines-blueLight::after {
+	border-color: var(--blueLight);
+}
+
 .line-purple::after,
 .lines-purple::after {
 	border-color: var(--purple);
@@ -3892,6 +3897,11 @@ scroll-view.cu-steps .cu-item {
 	color: var(--blue);
 }
 
+.text-blueLight,
+.line-blueLight,
+.lines-blueLight {
+	color: var(--blueLight);
+}
 .text-purple,
 .line-purple,
 .lines-purple {

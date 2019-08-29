@@ -3,15 +3,17 @@
     <view class='left'>
       <view class='nameTool'>
          <text class='name'>{{info.realName}}</text>
-         <button class="cu-btn round bg-blue sm" bindtap='focusLawyer'>关注</button>
+         <!-- <button class="cu-btn round bg-blue sm" bindtap='focusLawyer'>关注</button> -->
+         <button class="cu-btn round bg-grey sm" wx:if="{{focus}}" bindtap='cancelFocus'>已关注</button>
+         <button class="cu-btn round bg-blue sm" wx:else bindtap='focusLawyer'>关注</button>
       </view>
       <view>
-        <view>
+        <!-- <view>
           <image class='pink' src='{{info.headImage}}'></image>
           <text>5.0</text>
-        </view>
+        </view> -->
         <view>
-          患者关注数：917
+          患者关注数：{{info.focusCount}}
         </view>
       </view> 
       <view class='tags'>

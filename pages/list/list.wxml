@@ -25,14 +25,16 @@
         <view class="cu-item" wx:for="{{lawyerList}}" wx:key bindtap='jumpToinfo' data-id="{{index}}">
           <view class="cu-avatar round lg" style="background-image:url({{item.headImage}});"></view>
           <view class="content">
-            <view class="name">{{item.nickname}}</view>
+            <view class="name">{{item.realName}}</view>
             <view class="text-gray text-sm flex">
               <view class="lineTwo">{{item.selfData}}
               </view>
             </view>
           </view>
           <view class="action">
-            <button class="cu-btn round bg-blue sm">关注</button>
+            <button class="cu-btn round bg-grey sm" wx:if="{{item.ifFocus==1}}">已关注</button>
+            <button class="cu-btn round bg-blue sm" wx:else>关注</button>
+           
           </view>
         </view>
       </view>

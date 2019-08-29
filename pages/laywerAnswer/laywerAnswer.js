@@ -195,6 +195,7 @@ Page({
   submitFn(upload) {
     wx.showLoading({
       title: '正在提交数据',
+      mask: true
     })
     let data = {
       orderId: this.data.orderId,
@@ -211,7 +212,15 @@ Page({
       .then(res => {
         console.log(res);
         wx.hideLoading();
-
+        wx.showToast({
+          title: '回复成功',
+          mask: true
+        })
+        // 返回上一页
+        setTimeout(()=>{
+          wx.navigateBack();
+        },1000)
+       
       })
   },
   /**
