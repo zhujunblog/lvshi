@@ -8,10 +8,10 @@
          <button class="cu-btn round bg-blue sm" wx:else bindtap='focusLawyer'>关注</button>
       </view>
       <view>
-        <!-- <view>
-          <image class='pink' src='{{info.headImage}}'></image>
-          <text>5.0</text>
-        </view> -->
+        <view class='margin-right'>
+          <text class='cuIcon-favorfill text-yellow padding-right-xs'></text>
+          <text>{{info.score}}</text>
+        </view>
         <view>
           患者关注数：{{info.focusCount}}
         </view>

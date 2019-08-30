@@ -19,7 +19,20 @@ class orderInfo extends HTTP {
   checkOrder(data){
     return this.request('/wxuser/checkOrder', data, "POST");
   }
+  
+  /**
+   * 获取评价标签
+   */
+  getAppraiseList(data){
+    return this.request('/wxuser/getAppraiseList',data,'post');
+  }
 
+  /**
+   * 评价
+   */
+  appraiseOrder(data){
+    return this.request("/wxuser/appraiseOrder",data,'POST');
+  }
 }
 
 export { orderInfo };

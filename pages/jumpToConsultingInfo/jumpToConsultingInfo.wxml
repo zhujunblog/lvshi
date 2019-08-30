@@ -78,18 +78,26 @@
           {{imgList.length}}/4
         </view> -->
       </view>
-      <view class="cu-form-group">
-        <view class="grid col-4 grid-square flex-sub">
-          <view class="bg-img" wx:for="{{filter._imagArr(orderInfo.orderImage)}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{item}}" data-imgList="{{orderInfo.orderImage}}">
+      <view class="padding bg-white flex justify-center" wx:if="{{!orderInfo.orderImage}}">没有图片描述</view>
+      <view class="cu-form-group" wx:if="{{orderInfo.orderImage}}">
+      
+        <view class="grid col-4 grid-square flex-sub" >
+          
+          <view class="bg-img"   wx:for="{{filter._imagArr(orderInfo.orderImage)}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{item}}" data-imgList="{{orderInfo.orderImage}}">
             <image src='{{item}}' mode='aspectFill'></image>
           </view>
         </view>
       </view>
     
       <!-- 咨询记录 -->
-      <view class="cu-timeline margin-top padding-bottom">
-        <view class="cu-time text-bold">咨询记录</view>
-
+      <view class="cu-bar bg-white margin-top">
+        <view class="action">
+          咨询记录
+        </view>
+      </view>
+      <view class="padding bg-white flex justify-center" wx:if="{{orderComment.length == 0}}">暂无咨询记录</view>
+      <view class="cu-timeline padding-bottom" wx:if="{{orderComment.length > 0}}">
+        
         <view class="cu-item text-{{item.userType == 1 ? 'green':'blue'}} cuIcon-noticefill" wx:for="{{orderComment}}">
           <view class="content bg-grey shadow-blur light">
             <view class='flex justify-between'>
@@ -119,5 +127,27 @@
       <button class="cu-btn bg-green margin-tb-sm lg" bindtap='success' wx:if="{{orderInfo.orderStatus == 1}}" >完成咨询</button>
   
   </view>
-
+  
+  <!-- 评价 -->
+  <view class="cu-modal bottom-modal {{modalName=='ChooseModal'?'show':''}}" bindtap="hideModal">
+        <view class="cu-dialog" catchtap>
+          <view class="cu-bar bg-white">
+            <view class="action text-blue" bindtap="hideModal">取消</view>
+            <view class="action text-green" bindtap="hideModalSuccess">确定</view>
+          </view>
+          <!-- 分数 -->
+          <view class='flex padding align-center'>
+              <view class="title padding-right text-xl text-gray">选择评分</view>
+              <view class='flex text-xxl'>
+                <view class="cuIcon-favorfill lg  text-{{index+1 <= score ? 'yellow':'gray' }} padding-right-xs" bindtap='clickFavor' data-id="{{index+1}}" wx:for="{{5}}"></view>
+              </view>
+          </view>
+          <view class="grid col-3 padding-sm">
+            <view wx:for="{{checkbox}}" class="padding-xs" wx:key="{{index}}">
+              <button class="cu-btn orange lg block {{item.checked?'bg-orange':'line-orange'}}" bindtap="ChooseCheckbox" data-value="{{item.id}}"> {{item.tagName}}
+              </button>
+            </view>
+          </view>
+        </view>
+      </view>
 </view>
