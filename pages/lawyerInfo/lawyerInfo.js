@@ -239,8 +239,7 @@ Page({
   getuserAddress(e){
     let data = e.detail.value;
     this.setData({
-      region: data,
-      userAddress: data.join()
+      userAddress: data
     })
   },
   /**
@@ -392,7 +391,7 @@ Page({
     if (!this.data.userAddress)
     {
       wx.showToast({
-        title: '请选择地址',
+        title: '请输入执业律所',
         icon: 'none'
       })
       return false;

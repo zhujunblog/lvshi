@@ -7,13 +7,8 @@
       </view>
 
       <view class="cu-form-group">
-        <view class="title">地址</view>
-        <picker bindchange="getuserAddress"  mode="region" value="{{region}}" >
-          <view class="picker">
-             <text wx:if="{{region.length > 0}}">{{region[0]}}，{{region[1]}}，{{region[2]}}</text>
-             <text class='text' wx:else>请选择地址</text>
-          </view>
-        </picker>
+        <view class="title">执业律所</view>
+        <input placeholder="请输入执业律所" value='{{userAddress}}' bindinput="getuserAddress"></input>
       </view>
 
       <view class="cu-form-group">
