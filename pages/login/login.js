@@ -57,7 +57,7 @@ Page({
   },
   resqusetHttp(params){
     wx.request({
-      url: 'http://118.31.64.51:8081/lawyer/wxuser/onLogin',
+      url: 'http://118.31.73.132:8081/lawyer/wxuser/onLogin',
       data: params,
       header: {
         "content-type": 'application/x-www-form-urlencoded'
