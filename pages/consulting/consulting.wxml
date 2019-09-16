@@ -48,7 +48,7 @@
 
       <view class="cu-form-group margin-top" wx:if="{{!showModule}}">
         <view class="title">问题描述</view>
-        <button class="cu-btn bg-green shadow" bindtap='showModuleFn'>模板下单</button>
+        <button class="cu-btn bg-blue shadow" bindtap='showModuleFn'>模板下单</button>
       </view>
       <view class="cu-form-group" wx:if="{{!showModule}}">
         <textarea maxlength="-1" bindinput='getcontent' placeholder="请输入问题描述"></textarea>

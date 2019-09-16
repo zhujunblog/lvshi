@@ -15,8 +15,8 @@ Component({
   },
   methods: {
     jumpToList() {
-      wx.switchTab({
-        url: '/pages/list/list',
+      wx.navigateTo({
+        url: '/pages/index/index?type=list',
       })
     },
     jumpTofocusLawyer() {

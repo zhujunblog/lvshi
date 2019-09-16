@@ -37,7 +37,7 @@
       </view>
       <view class="action">
         <text class='text-xs' >￥<text class="text-blue text-lg " >{{info.photoPrice}}</text>/次</text>
-        <button style='margin-left: 20rpx;' bindtap='jumpToconsultingPhoto' class="cu-btn round bg-blue shadow">咨询</button>
+        <button style='margin-left: 20rpx;' bindtap='jumpToconsultingPhoto' class="cu-btn  bg-blue shadow">咨询</button>
       </view>
     </view>
     <view class="cu-item">
@@ -47,7 +47,7 @@
       </view>
       <view class="action">
         <text class='text-xs' >￥<text class="text-blue text-lg " >{{info.lawyerPrice}}</text>/次</text>
-        <button style='margin-left: 20rpx;' bindtap='jumpToconsultingLawyer' class="cu-btn round bg-blue shadow">咨询</button>
+        <button style='margin-left: 20rpx;' bindtap='jumpToconsultingLawyer' class="cu-btn  bg-blue shadow">咨询</button>
       </view>
     </view>
   </view>
