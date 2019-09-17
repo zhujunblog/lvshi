@@ -30,6 +30,11 @@
       <view class="nav-title">看科普</view>
       <view class="nav-name">阅读科普文章</view>
     </view>
+    
+    <view  class="nav-li bg-blue" >
+      <view class="nav-title">问询台</view>
+      <view class="nav-name">10元每次</view>
+    </view>
 
 
   </view>

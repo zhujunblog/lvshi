@@ -28,7 +28,7 @@ App({
                     // 可以将 res 发送给后台解码出 unionId
                     this.globalData.userInfo = res.userInfo;
                     wx.request({
-                      url: 'http://118.31.73.132:8081/lawyer/wxuser/onLogin',
+                      url: 'http://47.100.218.208:8080/lawyer/wxuser/onLogin',
                       data: {
                         code: code,
                         headImage: res.userInfo.avatarUrl,

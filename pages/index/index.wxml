@@ -14,33 +14,33 @@
 <view class="cu-bar tabbar bg-white shadow foot">
   <view class="action" bindtap="NavChange" wx:if="{{type}}" data-cur="userIndex">
     <view class='cuIcon-cu-image'>
-      <image src="/images/tabbar/basics{{PageCur=='userIndex'?'_cur':''}}.png"></image>
+      <image src="/images/tabbar/index{{PageCur=='userIndex'?'_cur':''}}.png"></image>
     </view>
-    <view class="{{PageCur=='userIndex'?'text-green':'text-gray'}}">首页</view>
+    <view class="{{PageCur=='userIndex'?'text-blue':'text-gray'}}">首页</view>
   </view>
   <view class="action" bindtap="NavChange" wx:if="{{type}}" data-cur="list">
     <view class='cuIcon-cu-image'>
-      <image src="/images/tabbar/component{{PageCur=='list'?'_cur':''}}.png"></image>
+      <image src="/images/tabbar/list{{PageCur=='list'?'_cur':''}}.png"></image>
     </view>
-    <view class="{{PageCur=='list'?'text-green':'text-gray'}}">列表</view>
+    <view class="{{PageCur=='list'?'text-blue':'text-gray'}}">列表</view>
   </view>
   <view class="action" bindtap="NavChange" wx:if="{{type}}" data-cur="usermy">
     <view class='cuIcon-cu-image'>
-      <image src="/images/tabbar/component{{PageCur=='usermy'?'_cur':''}}.png"></image>
+      <image src="/images/tabbar/my{{PageCur=='usermy'?'_cur':''}}.png"></image>
     </view>
-    <view class="{{PageCur=='usermy'?'text-green':'text-gray'}}">我的</view>
+    <view class="{{PageCur=='usermy'?'text-blue':'text-gray'}}">我的</view>
   </view>
 
   <view class="action" bindtap="NavChange" wx:if="{{!type}}"  data-cur="lawyerIndex">
     <view class='cuIcon-cu-image'>
-      <image src="/images/tabbar/plugin{{PageCur=='lawyerIndex'?'_cur':''}}.png"></image>
+      <image src="/images/tabbar/index{{PageCur=='lawyerIndex'?'_cur':''}}.png"></image>
     </view>
-    <view class="{{PageCur=='lawyerIndex'?'text-green':'text-gray'}}">首页</view>
+    <view class="{{PageCur=='lawyerIndex'?'text-blue':'text-gray'}}">首页</view>
   </view>
   <view class="action" bindtap="NavChange" wx:if="{{!type}}" data-cur="lawyerMy">
     <view class='cuIcon-cu-image'>
-      <image src="/images/tabbar/about{{PageCur=='lawyerMy'?'_cur':''}}.png"></image>
+      <image src="/images/tabbar/my{{PageCur=='lawyerMy'?'_cur':''}}.png"></image>
     </view>
-    <view class="{{PageCur=='lawyerMy'?'text-green':'text-gray'}}">关于</view>
+    <view class="{{PageCur=='lawyerMy'?'text-blue':'text-gray'}}">关于</view>
   </view>
 </view>

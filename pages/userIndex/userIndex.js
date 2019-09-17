@@ -15,7 +15,7 @@ Component({
   },
   methods: {
     jumpToList() {
-      wx.navigateTo({
+      wx.redirectTo({
         url: '/pages/index/index?type=list',
       })
     },

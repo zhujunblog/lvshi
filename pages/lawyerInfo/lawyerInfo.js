@@ -197,6 +197,7 @@ Page({
    */
   getkeyword(e){
     console.log(e.detail.value);
+    
     this.setData({
       keyword: e.detail.value
     })
@@ -405,19 +406,19 @@ Page({
       return false;
     }
     console.log(this.data.photoPrice * 1);
-    if (this.data.photoPrice*1 <= 0){
+    if (this.data.photoPrice*1 < 0.2){
       console.log(this.data.photoPrice * 1);
       wx.showToast({
-        title: '请输入正确的价格',
+        title: '请输入正确的价格,不能小于0.2元',
         icon: 'none'
       })
       return false;
     }
 
-    if (this.data.lawyerPrice*1 <= 0) {
+    if (this.data.lawyerPrice*1 < 0.2) {
       console.log(this.data.lawyerPrice * 1);
       wx.showToast({
-        title: '请输入正确的价格',
+        title: '请输入正确的价格,不能小于0.2元',
         icon: 'none'
       })
       return false;

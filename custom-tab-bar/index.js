@@ -8,36 +8,36 @@ Component({
     selectedColor: "#3cc51f",
     list: [{
       pagePath: "/pages/index/index",
-      iconPath: "/image/icon_component.png",
+      iconPath: "/image/index.png",
       hide: type,
-      selectedIconPath: "/image/icon_component_HL.png",
+      selectedIconPath: "/image/index_cur.png",
       text: "首页"
     }, {
         pagePath: "/pages/list/list",
-      iconPath: "/image/icon_API.png",
+      iconPath: "/image/list.png",
       hide: type,
-      selectedIconPath: "/image/icon_API_HL.png",
+      selectedIconPath: "/image/list_cur.png",
       text: "分类"
     },
       {
         pagePath: "/pages/my/my",
-        iconPath: "/image/icon_API.png",
+        iconPath: "/image/my.png",
         hide: type,
-        selectedIconPath: "/image/icon_API_HL.png",
+        selectedIconPath: "/image/my_cur.png",
         text: "我的"
       },
     {
       pagePath: "/pages/lawyerIndex/lawyerIndex",
-      iconPath: "/image/icon_API.png",
+      iconPath: "/image/index.png",
       hide: !type,
-      selectedIconPath: "/image/icon_API_HL.png",
+      selectedIconPath: "/image/index_cur.png",
       text: "首页"
     },
       {
         pagePath: "/pages/lawyerMy/lawyerMy",
-        iconPath: "/image/icon_API.png",
+        iconPath: "/image/my.png",
         hide: !type,
-        selectedIconPath: "/image/icon_API_HL.png",
+        selectedIconPath: "/image/my_cur.png",
         text: "我的"
       }
     ]
@@ -48,36 +48,36 @@ Component({
     this.setData({
       list: [{
         pagePath: "/pages/index/index",
-        iconPath: "/image/icon_component.png",
+        iconPath: "/image/index.png",
         hide: type,
-        selectedIconPath: "/image/icon_component_HL.png",
+        selectedIconPath: "/image/index_cur.png",
         text: "首页"
       }, {
           pagePath: "/pages/list/list",
-        iconPath: "/image/icon_API.png",
+        iconPath: "/image/list.png",
         hide: type,
-        selectedIconPath: "/image/icon_API_HL.png",
+        selectedIconPath: "/image/list_cur.png",
         text: "分类"
       },
         {
           pagePath: "/pages/my/my",
-          iconPath: "/image/icon_API.png",
+          iconPath: "/image/my.png",
           hide: type,
-          selectedIconPath: "/image/icon_API_HL.png",
+          selectedIconPath: "/image/my_cur.png",
           text: "我的"
         },
       {
         pagePath: "/pages/lawyerIndex/lawyerIndex",
-        iconPath: "/image/icon_API.png",
+        iconPath: "/image/index.png",
         hide: !type,
-        selectedIconPath: "/image/icon_API_HL.png",
+        selectedIconPath: "/image/index_cur.png",
         text: "首页"
       },
         {
           pagePath: "/pages/lawyerMy/lawyerMy",
-          iconPath: "/image/icon_API.png",
+          iconPath: "/image/my.png",
           hide: !type,
-          selectedIconPath: "/image/icon_API_HL.png",
+          selectedIconPath: "/image/my_cur.png",
           text: "我的"
         }
       ]
