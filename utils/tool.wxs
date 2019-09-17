@@ -7,10 +7,11 @@ function _filterTimestamp(value) {
   fmt2 = fmt2.split('.')[0];
   reg = getRegExp("T", "g");
   fmt2 = fmt2.replace(reg, ' ');
-  // timestamp = getDate(fmt2).getTime();
+  console.log(fmt2);
+  var time = getDate(fmt2);
 
   // return fmt2;
-  var time = getDate(value);
+  // var time = getDate(timestamp);
   var year = time.getFullYear();
   var month = time.getMonth() + 1;
   var date = time.getDate();

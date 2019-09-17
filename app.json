@@ -20,7 +20,8 @@
     "pages/about/about",
     "pages/our/our",
     "pages/userIndex/userIndex",
-    "pages/userOrderInfo/userOrderInfo"
+    "pages/userOrderInfo/userOrderInfo",
+    "pages/search/search"
   ],
   "window": {
     "backgroundTextStyle": "light",

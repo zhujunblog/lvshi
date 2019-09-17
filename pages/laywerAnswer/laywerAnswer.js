@@ -212,14 +212,23 @@ Page({
       .then(res => {
         console.log(res);
         wx.hideLoading();
-        wx.showToast({
-          title: '回复成功',
-          mask: true
-        })
-        // 返回上一页
-        setTimeout(()=>{
-          wx.navigateBack();
-        },1000)
+        if(res.status == 9999){
+          wx.showToast({
+            title: '回复成功',
+            mask: true
+          })
+          // 返回上一页
+          setTimeout(() => {
+            wx.navigateBack();
+          }, 1000)
+        }else{
+          wx.showToast({
+            title: '回复失败',
+            icon: 'none'
+          })
+
+        }
+        
        
       })
   },

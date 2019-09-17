@@ -1,5 +1,5 @@
 <!--pages/userIndex/userIndex.wxml-->
-<scroll-view scroll-y class="scrollPage">
+<scroll-view scroll-y class="scrollPage" style="height:calc(100vh - 100rpx)">
 <!-- <view class='indexBOx'> -->
   <view class='imgsTop'>
     <image src='../../image/top.jpg'></image>
@@ -19,7 +19,7 @@
        </view>
      </view>
   </view>
-  <view class='nav-list'>
+  <view class='nav-list padding-bottom'>
 
     <view   class="nav-li bg-blue" bindtap='jumpTofocusLawyer'>
       <view class="nav-title">问律师</view>

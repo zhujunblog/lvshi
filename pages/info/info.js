@@ -44,6 +44,11 @@ Page({
     if (!isLogin()) {
       return false;
     }
+
+    if (!this.isInfo()){
+
+      return false;
+    }
     wx.navigateTo({
       url: '/pages/consulting/consulting?lawyer=' + JSON.stringify(this.data.info) + '&type=' + 1 + '&money=' + this.data.info.photoPrice,
     })
@@ -52,6 +57,12 @@ Page({
     if (!isLogin()) {
       return false;
     }
+
+    if (!this.isInfo()) {
+
+      return false;
+    }
+    
     wx.navigateTo({
       url: '/pages/consulting/consulting?lawyer=' + JSON.stringify(this.data.info) + '&type=' + 2 + '&money=' + this.data.info.lawyerPrice,
     })
@@ -72,6 +83,10 @@ Page({
     if (!isLogin()){
       return false;
     }
+
+    
+
+
     let data = {
       id: this.data.info.id,
       type: 1
@@ -131,6 +146,37 @@ Page({
         }
       }
     })
+  },
+  /**
+   * 判断用户是否填写了信息
+   */
+  isInfo(){
+    let userInfo = wx.getStorageSync("userInfo") || null;
+    console.log(userInfo);
+    console.log(userInfo.realName);
+    if (userInfo && userInfo.realName) {
+      return true;
+    }else{
+      wx.showModal({
+        title: '提示',
+        content: '你还未填写信息，不能使用此功能，请前往填写！',
+        success(res) {
+          if (res.confirm) {
+            wx.navigateTo({
+              url: "/pages/userInfo/userinfo"
+            })
+          } else if (res.cancel) {
+            wx.showToast({
+              title: '很遗憾，你无法使用此功能',
+              icon: 'none',
+              duration: 2000
+            })
+          }
+        }
+      });
+      return false;
+    }
+    
   },
   /**
    * 生命周期函数--监听页面隐藏

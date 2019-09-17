@@ -128,6 +128,11 @@ Component({
         url: '/pages/info/info?item=' + JSON.stringify(item),
       })
     },
+    jumptoSearch(){
+      wx.navigateTo({
+        url: '/pages/search/search',
+      })
+    },
     /**
      * 获取律师列表
      */

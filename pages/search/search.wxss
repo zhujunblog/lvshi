@@ -1,6 +1,5 @@
-/* pages/component/nav/nav.wxss */
 .VerticalNav.nav {
-  width: 230rpx;
+  width: 200rpx;
   white-space: initial;
   background-color: #fff;
 }
@@ -69,6 +68,3 @@
   width: 120rpx;
   margin-top: 30rpx;
 }
-
-
-
