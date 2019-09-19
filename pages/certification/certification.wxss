@@ -1,1 +1,12 @@
 /* pages/certification/certification.wxss */
+.certification{
+  height: 100vh;
+  background-color: #fff;
+  width: 100%;
+  overflow: auto;
+}
+.bg{
+  font-size: 250rpx;
+  margin-top: 150rpx;
+  text-align: center;
+}

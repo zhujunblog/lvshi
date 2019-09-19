@@ -301,6 +301,8 @@ Page({
           })
         }
       });
+    }).catch(err => {
+      wx.hideLoading();
     })
   },
   /**

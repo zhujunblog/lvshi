@@ -1,4 +1,16 @@
-<!-- 申请认证 -->
+<!-- 申请提现 -->
 <view class='certification'>
-   
+   <view class='cu-bar solid-bottom bg-white'>
+        <view class='action'>
+          <text class='cuIcon-title text-blue'></text> 申请提现 </view>
+      </view>
+   <view class='iconBox'>
+     <view class="cuIcon-moneybagfill text-yellow bg"></view>
+     <view class='text-xxl text-center'>金额：<text class='text-red text-price'>{{money}}</text></view>
+   </view>
+
+   <view class="padding flex flex-direction">
+    <!-- <button class="cu-btn bg-grey lg">玄灰</button> -->
+    <button class="cu-btn bg-blue margin-tb-sm lg" bindtap='submit'>申请提现</button>
+  </view>
 </view>
