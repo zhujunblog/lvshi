@@ -2,7 +2,7 @@
 <scroll-view scroll-y class="scrollPage" style="height:calc(100vh - 100rpx)">
 <!-- <view class='indexBOx'> -->
   <view class='imgsTop'>
-    <image src='../../image/top.jpg'></image>
+    <image src='../../image/top.png'></image>
   </view>
   <view class='content'>
      <view class='title'>我的律师</view>

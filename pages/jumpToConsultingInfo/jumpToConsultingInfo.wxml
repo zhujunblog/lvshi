@@ -17,7 +17,7 @@
         <view class='text-blue text-bold'>{{orderInfo.orderType == 1 ? "图文咨询":"电话咨询"}}</view>
       </view>
 
-      <view class="cu-form-group" bindtap='callUser'  wx:if="{{orderInfo.orderStatus != 4 && wxUser.userType != 1}}">
+      <view class="cu-form-group" bindtap='callUser'  wx:if="{{orderInfo.orderType != 1}}">
         <view class="title">用户电话：</view>
         <view class='text-bold'>{{orderInfo.advicePhone}}</view>
       </view>
@@ -124,7 +124,7 @@
       <button class="cu-btn bg-blue margin-tb-sm lg" bindtap='jumpTolaywerAnswer'>回答咨询</button>
       <button class="cu-btn bg-grey margin-tb-sm lg"  wx:if="{{orderInfo.orderStatus == 3 && wxUser.userType == 3}}" >等待用户确认...</button>
       <button class="cu-btn bg-grey margin-tb-sm lg"  wx:if="{{orderInfo.orderStatus == 2 && wxUser.userType == 1}}" >等待律师确认...</button>
-      <button class="cu-btn bg-green margin-tb-sm lg" bindtap='success' wx:if="{{orderInfo.orderStatus == 1}}" >完成咨询</button>
+      <button class="cu-btn bg-green margin-tb-sm lg" bindtap='success' wx:else >完成咨询</button>
   
   </view>
   

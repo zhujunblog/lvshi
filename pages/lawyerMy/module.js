@@ -13,6 +13,12 @@ class lawyerMy extends HTTP {
     return this.request('/wxuser/lawyerInfo', data, "POST");
   }
   
+  /**
+   * 电话状态
+   */
+  setInfo(data) {
+    return this.request('/wxuser/lawyerInfo', data, "POST");
+  }
 }
 
 export { lawyerMy };

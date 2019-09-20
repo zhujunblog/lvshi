@@ -89,6 +89,8 @@
  </view>
 
   <view class="padding flex flex-direction" >
+  <button class="cu-btn bg-blue margin-tb-sm lg" bindtap='callUser'>拨打电话</button>
+  
       <button class="cu-btn bg-blue margin-tb-sm lg" bindtap='jumpToUserIndex'>跳转至首页</button>
       
       <button class="cu-btn bg-green margin-tb-sm lg" bindtap='jumpToOrderList' >跳转至我的页面</button>

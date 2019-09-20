@@ -1,4 +1,5 @@
 // pages/login/login.js
+var app = getApp();
 Page({
 
   /**
@@ -72,6 +73,7 @@ Page({
           wx.setStorageSync("session", data.token);
           wx.setStorageSync("userType", wx.getStorageSync("type") || 1);
           wx.setStorageSync("userInfo", res.data.user);
+          app.globalData.user = res.data.user;
           wx.hideLoading();
           wx.navigateBack();
         }

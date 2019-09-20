@@ -1,7 +1,8 @@
 // pages/my/my.js
-import { isLogin } from '../../utils/utils.js';
+import { isLogin, login} from '../../utils/utils.js';
 import { lawyerMy} from './module.js';
 const http = new lawyerMy();
+var app = getApp();
 Component({
   options: {
     addGlobalClass: true,
@@ -14,9 +15,19 @@ Component({
     userType: null,
     lawyerBalance: null,
     imgSrc: null,
+    phoneStatus: null
   },
-  created() {
-    this.setInfo();
+  // created() {
+    
+  // },
+  lifetimes: {
+    attached: function () {
+      // 在组件实例进入页面节点树时执行
+      this.setInfo();
+    },
+    detached: function () {
+      // 在组件实例被从页面节点树移除时执行
+    },
   },
   pageLifetimes: {
     show: function () {
@@ -31,16 +42,20 @@ Component({
   },
   methods: {
     setInfo(){
-      let userInfo = wx.getStorageSync("userInfo") || null;
-      console.log(userInfo);
-      if (userInfo) {
-        this.setData({
-          realName: userInfo.realName,
-          userType: userInfo.userType,
-          lawyerBalance: userInfo.lawyerBalance / 100,
-          imgSrc: userInfo.headImage,
-        })
-      }
+      login(() => {
+        let userInfo = app.globalData.user || null;
+        console.log(userInfo);
+        if (userInfo) {
+          this.setData({
+            realName: userInfo.realName,
+            userType: userInfo.userType,
+            lawyerBalance: userInfo.lawyerBalance / 100,
+            imgSrc: userInfo.headImage,
+            phoneStatus: userInfo.phoneStatus
+          })
+        }
+      });
+      
 
       this.setData({
        
@@ -72,5 +87,63 @@ Component({
         url: '/pages/certification/certification',
       })
     },
+    fPhoneStatus(){
+      if (!isLogin()) {
+        return false;
+      }
+
+      let data = {
+        phoneStatus: 0
+      }
+      http.getList(data)
+        .then((res) => {
+          wx.showToast({
+            title: '关闭电话成功',
+          })
+          // this.updateStroge();
+          login(() => {
+            let userInfo = app.globalData.user || null;
+            console.log(userInfo);
+            if (userInfo) {
+              this.setData({
+                realName: userInfo.realName,
+                userType: userInfo.userType,
+                lawyerBalance: userInfo.lawyerBalance / 100,
+                imgSrc: userInfo.headImage,
+                phoneStatus: userInfo.phoneStatus
+              })
+            }
+          });
+        })
+    },
+    sPhoneStatus(){
+      if (!isLogin()) {
+        return false;
+      }
+      
+      let data = {
+        phoneStatus: 1
+      }
+      http.getList(data)
+        .then((res) => {
+          wx.showToast({
+            title: '开启电话成功',
+          })
+          // this.updateStroge();
+          login(() => {
+            let userInfo = app.globalData.user || null;
+            console.log(userInfo);
+            if (userInfo) {
+              this.setData({
+                realName: userInfo.realName,
+                userType: userInfo.userType,
+                lawyerBalance: userInfo.lawyerBalance / 100,
+                imgSrc: userInfo.headImage,
+                phoneStatus: userInfo.phoneStatus
+              })
+            }
+          });
+        })
+    }
   }
 })

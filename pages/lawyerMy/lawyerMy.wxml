@@ -6,7 +6,7 @@
     <view class="margin-top-sm">
       <open-data class="name" type="userNickName"></open-data>
     </view>
-    <view class='flex'>
+    <!-- <view class='flex'>
       <view>
         <text style="color:#fff;">认证状态：</text>
         <text wx:if="{{userType == 3}}" class='text-red'>已认证</text>
@@ -16,7 +16,7 @@
         <text style="color:#fff;">收入:</text>
         <text class='text-red'>{{lawyerBalance}}</text>
       </view>
-    </view>
+    </view> -->
   </view>
 
    <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius" >
@@ -34,10 +34,17 @@
       </view>
     </view>
 
-    <view class="cu-item arrow">
+    <view class="cu-item arrow" wx:if="{{phoneStatus == 1}}" bindtap='fPhoneStatus'>
       <view class="content"  >
         <text class="cuIcon-medalfill text-blue"></text>
-        <text class="text-grey">申请认证</text>
+        <text class="text-grey" >禁止电话</text>
+      </view>
+    </view>
+
+     <view class="cu-item arrow" bindtap='sPhoneStatus' wx:if="{{phoneStatus == 0}}">
+      <view class="content"  >
+        <text class="cuIcon-medalfill text-blue"></text>
+        <text class="text-grey" >开启电话</text>
       </view>
     </view>
 

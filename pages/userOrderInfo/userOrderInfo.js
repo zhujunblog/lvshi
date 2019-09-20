@@ -38,6 +38,15 @@ Page({
   onShow: function () {
     
   },
+  /**
+  * 拨打电话
+  */
+  callUser() {
+    console.log(55)
+    wx.makePhoneCall({
+      phoneNumber: this.data.orderInfo.advicePhone
+    })
+  },
   jumpToUserIndex(){
     wx.reLaunch({
       url: '/pages/index/index?type=userIndex',
@@ -54,7 +63,7 @@ Page({
   callUser() {
     console.log(55)
     wx.makePhoneCall({
-      phoneNumber: this.data.orderInfo.advicePhone
+      phoneNumber: this.data.orderInfo.lawyerPhone
     })
   },
   ViewImage(e) {

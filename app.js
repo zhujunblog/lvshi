@@ -43,7 +43,9 @@ App({
                         let type = res.data.user.userType;
                         wx.setStorageSync("session", res.data.token);
                         wx.setStorageSync("userType", type);
+                        wx.setStorageSync("type", type);
                         wx.setStorageSync("userInfo",res.data.user);
+                        this.globalData.user = res.data.user;
                         wx.hideLoading()
                         wx.reLaunch({
                           url: '/pages/index/index'
@@ -90,6 +92,7 @@ App({
     }
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    user: null,
   }
 })
