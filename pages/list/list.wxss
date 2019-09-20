@@ -13,6 +13,12 @@
   border: none;
   height: 50px;
   position: relative;
+  line-height:30rpx;
+display:flex;
+justify-content:center;
+align-content:center;
+align-items:center;
+
 }
 
 .VerticalNav.nav .cu-item.cur {

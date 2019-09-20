@@ -102,7 +102,7 @@
           简介
         </view>
       </view>
-      <view class="cu-form-group solid-top">
+      <view class="cu-form-group solid-top" wx:if="{{modalName !='ChooseModal'}}">
         <textarea maxlength="-1" value='{{selfData}}' bindinput='getselfData' placeholder="请输入简介"></textarea>
       </view>
       
@@ -111,7 +111,7 @@
           擅长
         </view>
       </view>
-      <view class="cu-form-group solid-top">
+      <view class="cu-form-group solid-top"  wx:if="{{modalName !='ChooseModal'}}">
         <textarea maxlength="-1" value='{{goodAt}}' bindinput='getgoodAt' placeholder="请输入擅长"></textarea>
       </view>
 
@@ -120,7 +120,7 @@
           执业经历
         </view>
       </view>
-      <view class="cu-form-group solid-top">
+      <view class="cu-form-group solid-top"  wx:if="{{modalName !='ChooseModal'}}">
         <textarea maxlength="-1" value='{{workExperience}}' bindinput='getworkExperience'  placeholder="请输入执业经历"></textarea>
       </view>
 

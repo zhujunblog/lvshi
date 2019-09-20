@@ -9,3 +9,9 @@
 .cu-form-group .picker .text{
   color: #555;
 }
+.scrollBox{
+  height: 600rpx;
+  overflow: auto;
+  text-align: left;
+ 
+}

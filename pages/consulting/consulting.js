@@ -2,6 +2,7 @@
 import { config } from '../../utils/config.js';
 import { consulting } from './module.js';
 const http = new consulting();
+var timer = null;
 Page({
 
   /**
@@ -20,6 +21,8 @@ Page({
     content: null,               //咨询内容
     type: 1,
     money: 0,                    // 支付金额
+    modalName: false,
+    showModelBtnBox: false
   },
 
   /**
@@ -50,10 +53,33 @@ Page({
   onShow: function () {
 
   },
+  showModel(){
+    if (!this.isValue()) {
+      return false;
+    }
+    
+    this.setData({
+      modalName: 'DialogModal2'
+    })
+    timer = setTimeout(() => {
+      this.setData({
+        showModelBtnBox: true
+      })
+    }, 5000)
+  },
   showModuleFn(){
    this.setData({
      showModule: true
    })
+
+  
+  },
+  hideModal(){
+    this.setData({
+      modalName: false,
+      showModelBtnBox: false
+    })
+    clearTimeout(timer);
   },
   /**
    * 获取用户姓名
@@ -180,9 +206,7 @@ Page({
    * 提交
    */
   submit(){
-    if(!this.isValue()){
-      return false;
-    }
+    
 
     // 判断是否需要上传图片
     let timer = null;
@@ -319,10 +343,9 @@ Page({
       orderType: this.data.type,
       orderAddress: this.data.region.join(),
       orderContent: this.data.content,
-      orderImage: this.data.uploadUrl.join(),
-      lawyerPhone: this.data.lawyer.telephone
+      orderImage: this.data.uploadUrl.join()
     }
-    wx.redirectTo({
+    wx.reLaunch({
       url: '/pages/userOrderInfo/userOrderInfo?orderInfo=' + JSON.stringify(data),
     })
   },

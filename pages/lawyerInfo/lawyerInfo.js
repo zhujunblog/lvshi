@@ -11,39 +11,47 @@ Page({
   data: {
     checkbox: [{
       value: 1,
-      name: '房屋买卖',
-      checked: false,
-    }, {
-      value: 2,
-      name: '房屋租赁',
-      checked: false,
-    }, {
-      value: 3,
       name: '婚姻',
       checked: false,
     }, {
+      value: 2,
+        name: '继承',
+      checked: false,
+    }, {
+      value: 3,
+        name: '房产',
+      checked: false,
+    }, {
       value: 4,
-      name: '继承',
+        name: '继承',
       checked: false,
     }, {
       value: 5,
-      name: '合同',
+        name: '债务',
       checked: false,
     }, {
       value: 6,
-      name: '劳动合同',
+        name: '交通事故',
       checked: false,
       }, {
         value: 7,
-        name: '知识产权',
+        name: '消费者权益',
         checked: false,
       }, {
         value: 8,
-        name: '债权',
+        name: '知识产权',
         checked: false,
       }, {
         value: 9,
-        name: '交通肇事',
+        name: '收购和并购',
+        checked: false,
+      }, {
+        value: 10,
+        name: '劳资合同',
+        checked: false,
+      }, {
+        value: 11,
+        name: '诉讼和仲裁',
         checked: false,
       }],
 

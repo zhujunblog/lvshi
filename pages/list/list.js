@@ -16,15 +16,15 @@ Component({
       },
       {
         id: 1,
-        name: '房屋买卖'
+        name: '婚姻'
       },
       {
         id: 2,
-        name: '房屋租赁'
+        name: '继承'
       },
       {
         id: 3,
-        name: '婚姻',
+        name: '房产',
       },
       {
         id: 4,
@@ -32,23 +32,31 @@ Component({
       },
       {
         id: 5,
-        name: '合同'
+        name: '债务'
       },
       {
         id: 6,
-        name: '劳动合同'
+        name: '交通事故'
       },
       {
         id: 7,
-        name: '知识产权'
+        name: '消费者权益'
       },
       {
         id: 8,
-        name: '债权'
+        name: '知识产权'
       },
       {
         id: 9,
-        name: '交通肇事'
+        name: '收购和并购'
+      },
+      {
+        id: 10,
+        name: '劳资合同'
+      },
+      {
+        id: 11,
+        name: '诉讼和仲裁'
       }
     ],
     lawyerList: [
