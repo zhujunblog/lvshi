@@ -1,5 +1,5 @@
 const config = {
-  api_base_url: 'http://47.100.218.208:8080/lawyer/'
+  api_base_url: 'https://www.tongjiaonline.com:8443/lawyer/'
 }
 module.exports = {
   config: config
