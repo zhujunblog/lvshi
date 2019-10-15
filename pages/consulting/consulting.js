@@ -343,9 +343,10 @@ Page({
       orderType: this.data.type,
       orderAddress: this.data.region.join(),
       orderContent: this.data.content,
+      lawyerPhone: this.data.lawyer.telephone,
       orderImage: this.data.uploadUrl.join()
     }
-    wx.reLaunch({
+    wx.redirectTo({
       url: '/pages/userOrderInfo/userOrderInfo?orderInfo=' + JSON.stringify(data),
     })
   },
